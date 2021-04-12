@@ -31,7 +31,7 @@ const Auth: React.FC = () => {
 
   return (
     <div className="text-center bg-yellow-100 flex justify-center items-center h-screen">
-      <div className="bg-white pb-10 h-2/4 m-10">
+      <div className="bg-white pb-10 h-1/2 m-10">
         <p className="text-5xl p-10 font-bold">Sign In</p>
         <p className="m-5">
           サービスをご利用するにはTwitterでログインが必要です。
