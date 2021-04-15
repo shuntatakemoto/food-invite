@@ -4,7 +4,7 @@ import LockIcon from "@material-ui/icons/Lock";
 
 const MyPage: React.FC = () => {
   return (
-    <div className="text-center">
+    <div className="">
       <button
         onClick={() => auth.signOut()}
         className="bg-yellow-100 p-2 rounded-2xl"
