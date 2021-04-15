@@ -3,7 +3,7 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
-import Mylist from "./components/Mylist";
+import MyPage from "./components/MyPage";
 import Auth from "./components/Auth";
 
 const App: React.FC = () => {
@@ -29,7 +29,7 @@ const App: React.FC = () => {
     };
   }, [dispatch]);
 
-  return <>{user.uid ? <Mylist /> : <Auth />}</>;
+  return <>{user.uid ? <MyPage /> : <Auth />}</>;
 };
 
 export default App;

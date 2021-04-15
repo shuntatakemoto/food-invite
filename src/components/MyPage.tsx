@@ -2,7 +2,7 @@ import React from "react";
 import { auth } from "../firebase";
 import LockIcon from "@material-ui/icons/Lock";
 
-const Mylist: React.FC = () => {
+const MyPage: React.FC = () => {
   return (
     <div className="text-center">
       <button
@@ -16,4 +16,4 @@ const Mylist: React.FC = () => {
   );
 };
 
-export default Mylist;
+export default MyPage;
