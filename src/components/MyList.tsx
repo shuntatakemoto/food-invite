@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
 import Post from "../components/Post";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
 
 const MyList: React.FC = () => {
+  const user = useSelector(selectUser);
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -16,7 +19,7 @@ const MyList: React.FC = () => {
 
   useEffect(() => {
     const unSub = db
-      .collection("lists")
+      .collection(`${user.uid}`)
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setPosts(

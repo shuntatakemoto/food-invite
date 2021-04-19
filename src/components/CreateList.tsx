@@ -40,7 +40,7 @@ const CreateList: React.FC = () => {
             .child(fileName)
             .getDownloadURL()
             .then(async (url) => {
-              await db.collection("lists").add({
+              await db.collection(`${user.uid}-lists`).add({
                 avatar: user.photoUrl,
                 image: url,
                 text: uploadText,
@@ -51,7 +51,7 @@ const CreateList: React.FC = () => {
         }
       );
     } else {
-      db.collection("lists").add({
+      db.collection(`${user.uid}-lists`).add({
         avatar: user.photoUrl,
         image: "",
         text: uploadText,
