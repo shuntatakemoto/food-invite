@@ -15,7 +15,21 @@ const MyPage: React.FC = () => {
         className="w-40"
       />
       <p className="text-xl font-bold">{user.displayName}</p>
-      <Link to="/lists">行きたい飲食店リスト</Link>
+      <Link to="/create-list">
+        <div>
+          <button>行きたい飲食店リスト</button>
+        </div>
+      </Link>
+      <Link to="/create-list">
+        <div>
+          <button>お気に入り飲食店リスト</button>
+        </div>
+      </Link>
+      <Link to="/create-list">
+        <div>
+          <button>その他のリスト</button>
+        </div>
+      </Link>
       <button
         onClick={() => auth.signOut()}
         className="bg-yellow-100 p-2 rounded-2xl"

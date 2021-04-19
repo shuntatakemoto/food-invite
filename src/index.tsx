@@ -6,7 +6,8 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route } from "react-router-dom";
-import Lists from "./components/Lists";
+import CreateList from "./components/CreateList";
+import MyList from "./components/MyList";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,8 @@ ReactDOM.render(
       <BrowserRouter>
         <App />
         {/* <Route exact path={"/"} component={Home} /> */}
-        <Route path={"/lists"} component={Lists} />
+        <Route path={"/create-list"} component={CreateList} />
+        <Route path={"/my-list"} component={MyList} />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

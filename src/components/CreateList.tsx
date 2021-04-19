@@ -7,7 +7,7 @@ import { Avatar, IconButton } from "@material-ui/core";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-const Lists: React.FC = () => {
+const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [uploadText, setUploadText] = useState("");
@@ -79,7 +79,7 @@ const Lists: React.FC = () => {
               <AddPhotoIcon
                 className={
                   uploadImage
-                    ? " cursor-pointer"
+                    ? "bg-yellow-100 cursor-pointer"
                     : "text-gray-300 cursor-pointer"
                 }
               />
@@ -107,4 +107,4 @@ const Lists: React.FC = () => {
   );
 };
 
-export default Lists;
+export default CreateList;
