@@ -19,6 +19,7 @@ interface PROPS {
 }
 
 const Post: React.FC<PROPS> = (props) => {
+  const user = useSelector(selectUser);
   return (
     <div>
       <div>

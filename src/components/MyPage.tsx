@@ -9,6 +9,7 @@ const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
   return (
     <div className="">
+      {/* {console.log(user.uid)} */}
       <img
         src={user.photoUrl.replace("normal", "200x200")}
         alt="profile image"
@@ -25,7 +26,7 @@ const MyPage: React.FC = () => {
           <button>お気に入り飲食店リスト</button>
         </div>
       </Link>
-      <Link to="/create-list">
+      <Link to="/my-list">
         <div>
           <button>その他のリスト</button>
         </div>

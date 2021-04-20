@@ -5,6 +5,7 @@ import { selectUser, login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import MyPage from "./components/MyPage";
 import Auth from "./components/Auth";
+// import MyList from "./components/MyList"
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
