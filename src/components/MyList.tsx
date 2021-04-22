@@ -17,8 +17,6 @@ const MyList: React.FC = () => {
     },
   ]);
 
-  //   console.log(user.uid);
-
   useEffect(() => {
     const id = user.uid;
     const unSub = db

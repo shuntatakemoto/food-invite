@@ -9,7 +9,6 @@ const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
   return (
     <div className="">
-      {/* {console.log(user.uid)} */}
       <img
         src={user.photoUrl.replace("normal", "200x200")}
         alt="profile image"

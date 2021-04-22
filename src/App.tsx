@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
