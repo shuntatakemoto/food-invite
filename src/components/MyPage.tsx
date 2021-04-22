@@ -8,7 +8,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
   return (
-    <div className="">
+    <div className="bg-main-color">
       <img
         src={user.photoUrl.replace("normal", "200x200")}
         alt="profile image"
@@ -32,7 +32,7 @@ const MyPage: React.FC = () => {
       </Link>
       <button
         onClick={() => auth.signOut()}
-        className="bg-yellow-100 p-2 rounded-2xl"
+        className="bg-sub-color p-2 rounded-2xl"
       >
         <LockIcon />
         Logout

@@ -79,7 +79,7 @@ const CreateList: React.FC = () => {
               <AddPhotoIcon
                 className={
                   uploadImage
-                    ? "bg-yellow-100 cursor-pointer"
+                    ? "bg-sub-color cursor-pointer"
                     : "text-gray-300 cursor-pointer"
                 }
               />
@@ -96,7 +96,7 @@ const CreateList: React.FC = () => {
           disabled={!uploadText}
           className={
             uploadText
-              ? "bg-yellow-100 p-2 rounded-2xl"
+              ? "bg-sub-color p-2 rounded-2xl"
               : "text-gray-300 p-2 rounded-2xl"
           }
         >
