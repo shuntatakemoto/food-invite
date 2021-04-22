@@ -4,6 +4,7 @@ import { selectUser, login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import MyPage from "./components/MyPage";
 import Auth from "./components/Auth";
+import Home from "./pages/Home";
 // import MyList from "./components/MyList"
 
 const App: React.FC = () => {
@@ -29,7 +30,7 @@ const App: React.FC = () => {
     };
   }, [dispatch]);
 
-  return <>{user.uid ? <MyPage /> : <Auth />}</>;
+  return <>{user.uid ? <Home /> : <Auth />}</>;
 };
 
 export default App;

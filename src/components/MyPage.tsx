@@ -30,13 +30,6 @@ const MyPage: React.FC = () => {
           <button>その他のリスト</button>
         </div>
       </Link>
-      <button
-        onClick={() => auth.signOut()}
-        className="bg-sub-color p-2 rounded-2xl"
-      >
-        <LockIcon />
-        Logout
-      </button>
     </div>
   );
 };

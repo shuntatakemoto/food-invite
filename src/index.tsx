@@ -8,15 +8,19 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route } from "react-router-dom";
 import CreateList from "./components/CreateList";
 import MyList from "./components/MyList";
+import Home from "./pages/Home";
+import MyPage from "./components/MyPage";
+import Footer from "./components/Footer";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
-        {/* <Route exact path={"/"} component={Home} /> */}
+        <Route exact path={"/"} component={MyPage} />
         <Route path={"/create-list"} component={CreateList} />
         <Route path={"/my-list"} component={MyList} />
+        <Footer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
