@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { Avatar, IconButton } from "@material-ui/core";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
