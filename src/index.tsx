@@ -11,23 +11,17 @@ import MyList from "./components/MyList";
 import Home from "./pages/Home";
 import MyPage from "./components/MyPage";
 import Footer from "./components/Footer";
+import { userSlice } from "./features/userSlice";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
-        <Route exact path={"/"} component={MyPage} />
-        <Route path={"/create-list"} component={CreateList} />
-        <Route path={"/my-list"} component={MyList} />
-        <Footer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

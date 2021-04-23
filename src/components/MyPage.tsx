@@ -4,6 +4,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
@@ -30,6 +31,7 @@ const MyPage: React.FC = () => {
           <button>その他のリスト</button>
         </div>
       </Link>
+      {/* <Footer /> */}
     </div>
   );
 };
