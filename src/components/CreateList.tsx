@@ -10,6 +10,8 @@ const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [uploadText, setUploadText] = useState("");
+  //ここで店名、一言メモを定義する
+
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
       setUploadImage(e.target.files![0]);
@@ -67,7 +69,7 @@ const CreateList: React.FC = () => {
         <div>
           <input
             className=""
-            placeholder="What's happening?"
+            placeholder="店名を入力"
             type="text"
             autoFocus
             value={uploadText}
@@ -95,8 +97,8 @@ const CreateList: React.FC = () => {
           disabled={!uploadText}
           className={
             uploadText
-              ? "bg-sub-color p-2 rounded-2xl"
-              : "text-gray-300 p-2 rounded-2xl"
+              ? "bg-sub-color p-2 rounded-2xl mb-5"
+              : "text-gray-300 p-2 rounded-2xl mb-5"
           }
         >
           作成！

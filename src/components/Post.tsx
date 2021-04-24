@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Post.module.css";
 import { db } from "../firebase";
 import firebase from "firebase/app";
 import { useSelector } from "react-redux";
@@ -19,7 +18,7 @@ interface PROPS {
 }
 
 const Post: React.FC<PROPS> = (props) => {
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
   return (
     <div>
       <div>

@@ -13,7 +13,7 @@ const MyPage: React.FC = () => {
         alt="profile image"
         className="w-40"
       />
-      <p className="text-xl font-bold">{user.displayName}</p>
+      <p className="text-2xl font-bold">{user.displayName}</p>
       <MyList />
     </div>
   );

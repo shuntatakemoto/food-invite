@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
   return (
     <div className="bg-sub-color flex h-16 items-center">
       <Link to="/">
-        <p className="px-4">Home</p>
+        <p className="px-4 text-xl">Home</p>
       </Link>
-      <button onClick={() => auth.signOut()} className="px-4">
+      <button onClick={() => auth.signOut()} className="px-4 text-xl">
         Logout
       </button>
     </div>
