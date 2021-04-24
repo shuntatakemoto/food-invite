@@ -3,15 +3,14 @@ import firebase from "firebase/app";
 import { storage, db, auth } from "../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
-import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
 
-const CreateList: React.FC = () => {
+const AddList: React.FC = () => {
   const user = useSelector(selectUser);
   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [uploadText, setUploadText] = useState("");
-  //ここで店名、一言メモを定義する
   const [memo, setMemo] = useState("");
   const [restaurantUrl, setRestaurantUrl] = useState("");
+  const [listName, setListName] = useState("");
 
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
@@ -50,6 +49,7 @@ const CreateList: React.FC = () => {
                 username: user.displayName,
                 memo: memo,
                 url: restaurantUrl,
+                name: listName,
               });
             });
         }
@@ -63,23 +63,22 @@ const CreateList: React.FC = () => {
         username: user.displayName,
         memo: memo,
         url: restaurantUrl,
+        name: listName,
       });
     }
-    setUploadImage(null);
-    setUploadText("");
-    setMemo("");
-    setRestaurantUrl("");
+    setListName("");
   };
+
   return (
     <>
       <form onSubmit={createList} className="pl-5 ">
         <div>
           <div>
             <label>
-              店名
+              リスト名
               <input
                 className="mt-5 ml-10"
-                placeholder="店名を入力"
+                placeholder="リストを入力"
                 type="text"
                 autoFocus
                 value={uploadText}
@@ -87,65 +86,18 @@ const CreateList: React.FC = () => {
               />
             </label>
           </div>
-
-          <div className="mt-5">
-            <label htmlFor="addPhoto">
-              <span className="pr-5">画像があれば選択</span>
-              <AddPhotoIcon
-                className={
-                  uploadImage
-                    ? "bg-sub-color cursor-pointer"
-                    : "text-gray-300 cursor-pointer"
-                }
-              />
-              <input
-                className="hidden"
-                id="addPhoto"
-                type="file"
-                onChange={onChangeImageHandler}
-              />
-            </label>
-          </div>
-
-          <div>
-            <label>
-              メモ
-              <input
-                className="mt-5 ml-10"
-                placeholder="一言メモを入力"
-                type="text"
-                autoFocus
-                value={memo}
-                onChange={(e) => setMemo(e.target.value)}
-              />
-            </label>
-          </div>
-
-          <div>
-            <label>
-              URL
-              <input
-                className="mt-5 ml-10"
-                placeholder="URLを入力"
-                type="text"
-                autoFocus
-                value={restaurantUrl}
-                onChange={(e) => setRestaurantUrl(e.target.value)}
-              />
-            </label>
-          </div>
         </div>
         <div className="mt-5">
           <button
             type="submit"
-            disabled={!uploadText}
+            disabled={!listName}
             className={
-              uploadText
+              listName
                 ? "bg-sub-color p-2 rounded-2xl mb-5"
                 : "text-gray-300 p-2 rounded-2xl mb-5"
             }
           >
-            作成
+            リスト作成
           </button>
         </div>
       </form>
@@ -153,4 +105,4 @@ const CreateList: React.FC = () => {
   );
 };
 
-export default CreateList;
+export default AddList;
