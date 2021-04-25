@@ -31,7 +31,7 @@ const WholePost: React.FC<PROPS> = (props) => {
             />
           </div>
           <div className="p-4 text-center">
-            <p className="text-2xl">{props.listname}</p>
+            <p className="text-lg">{props.listname}</p>
           </div>
         </a>
       </Link>

@@ -40,21 +40,23 @@ const MyList: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            postId={post.id}
-            avatar={post.avatar}
-            image={post.image}
-            text={post.text}
-            timestamp={post.timestamp}
-            username={post.username}
-          />
-        ))}
-      </div>
-    </>
+    <div>
+      {posts[0]?.id && (
+        <>
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              postId={post.id}
+              avatar={post.avatar}
+              image={post.image}
+              text={post.text}
+              timestamp={post.timestamp}
+              username={post.username}
+            />
+          ))}
+        </>
+      )}
+    </div>
   );
 };
 
