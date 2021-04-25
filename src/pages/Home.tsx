@@ -11,6 +11,7 @@ import MyList from "../components/MyList";
 import CreateList from "../components/CreateList";
 import AddList from "../components/AddList";
 import WholeMyList from "../components/WholeMyList";
+import Detail from "../components/Detail";
 
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
@@ -21,6 +22,7 @@ const Home: React.FC = () => {
       <Route path={"/create-list"} component={CreateList} />
       <Route path={"/my-list"} component={WholeMyList} />
       <Route path={"/add-list"} component={AddList} />
+      <Route path={"/detail"} component={Detail} />
       <Footer />
     </>
   );

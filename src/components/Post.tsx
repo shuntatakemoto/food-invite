@@ -6,7 +6,7 @@ import { selectUser } from "../features/userSlice";
 import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MessageIcon from "@material-ui/icons/Message";
-import SendIcon from "@material-ui/icons/Send";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 interface PROPS {
@@ -36,7 +36,7 @@ const WholePost: React.FC<PROPS> = (props) => {
           <input
             className=""
             type="text"
-            placeholder="Type new comment..."
+            placeholder="店名"
             value={name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setName(e.target.value)
@@ -51,7 +51,7 @@ const WholePost: React.FC<PROPS> = (props) => {
             }
             type="submit"
           >
-            <SendIcon className="" />
+            <CheckCircleIcon className="" />
           </button>
         </div>
       </form>
