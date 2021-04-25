@@ -49,7 +49,6 @@ const MyList: React.FC = () => {
               postId={post.id}
               avatar={post.avatar}
               image={post.image}
-              text={post.text}
               timestamp={post.timestamp}
               username={post.username}
             />

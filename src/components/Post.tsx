@@ -7,37 +7,56 @@ import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MessageIcon from "@material-ui/icons/Message";
 import SendIcon from "@material-ui/icons/Send";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 interface PROPS {
   postId: string;
   avatar: string;
   image: string;
-  text: string;
-  timestamp: any;
   username: string;
+  timestamp: any;
 }
 
-const Post: React.FC<PROPS> = (props) => {
-  // const user = useSelector(selectUser);
+const WholePost: React.FC<PROPS> = (props) => {
+  const user = useSelector(selectUser);
+  const [name, setName] = useState("");
+  const newRestaurant = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    db.collection(user.uid).doc(props.postId).collection("restaurant").add({
+      name: name,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      username: user.displayName,
+    });
+    setName("");
+  };
   return (
-    <div>
-      <div>
-        <Avatar src={props.avatar} />
-      </div>
-      <div>
-        <span>{props.username}</span>
-        <span>{new Date(props.timestamp?.toDate()).toLocaleString()}</span>
-      </div>
-      <div>
-        <p>{props.text}</p>
-      </div>
-      {props.image && (
+    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
+      <form onSubmit={newRestaurant}>
         <div>
-          <img src={props.image} alt="list" />
+          <input
+            className=""
+            type="text"
+            placeholder="Type new comment..."
+            value={name}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+          />
+          <button
+            disabled={!name}
+            className={
+              name
+                ? "bg-sub-color p-2 rounded-2xl mb-5"
+                : "text-gray-300 p-2 rounded-2xl mb-5"
+            }
+            type="submit"
+          >
+            <SendIcon className="" />
+          </button>
         </div>
-      )}
+      </form>
     </div>
   );
 };
 
-export default Post;
+export default WholePost;
