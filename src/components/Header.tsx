@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <Link to="/">
         <h3 className="px-4 text-2xl">Food Invite</h3>
       </Link>
-      <Link to="/create-list">
+      <Link to="/add-list">
         <LibraryAddIcon fontSize="large" />
       </Link>
     </div>

@@ -3,6 +3,7 @@ import { auth } from "../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import MyList from "../components/MyList";
+import WholeMyList from "../components/WholeMyList";
 
 const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
@@ -14,7 +15,7 @@ const MyPage: React.FC = () => {
         className="w-40"
       />
       <p className="text-2xl font-bold">{user.displayName}</p>
-      <MyList />
+      <WholeMyList />
     </div>
   );
 };

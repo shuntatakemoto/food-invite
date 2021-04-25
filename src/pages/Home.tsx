@@ -9,6 +9,8 @@ import Footer from "../components/Footer";
 import MyPage from "../components/MyPage";
 import MyList from "../components/MyList";
 import CreateList from "../components/CreateList";
+import AddList from "../components/AddList";
+import WholeMyList from "../components/WholeMyList";
 
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
@@ -17,7 +19,8 @@ const Home: React.FC = () => {
       <Header />
       {user.uid && <Route exact path={"/"} component={MyPage} />}
       <Route path={"/create-list"} component={CreateList} />
-      <Route path={"/my-list"} component={MyList} />
+      <Route path={"/my-list"} component={WholeMyList} />
+      <Route path={"/add-list"} component={AddList} />
       <Footer />
     </>
   );

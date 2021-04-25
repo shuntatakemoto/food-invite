@@ -9,7 +9,6 @@ const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [uploadText, setUploadText] = useState("");
-  //ここで店名、一言メモを定義する
   const [memo, setMemo] = useState("");
   const [restaurantUrl, setRestaurantUrl] = useState("");
 
