@@ -8,7 +8,7 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 const Header: React.FC = () => {
   const user = useSelector(selectUser);
   return (
-    <div className="bg-sub-color flex h-16 items-center">
+    <div className="bg-sub-color flex h-16 items-center justify-center">
       <Link to="/">
         <h3 className="px-4 text-2xl mr-5">Food Invite</h3>
       </Link>

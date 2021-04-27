@@ -7,11 +7,11 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 const Footer: React.FC = () => {
   const user = useSelector(selectUser);
   return (
-    <div className="bg-sub-color flex h-16 items-center content-center">
+    <div className="bg-sub-color flex h-16 items-center justify-center">
       <Link to="/">
-        <p className="px-4 text-xl">Home</p>
+        <p className="px-4 text-xl mr-3">Home</p>
       </Link>
-      <button onClick={() => auth.signOut()} className="px-4 text-xl">
+      <button onClick={() => auth.signOut()} className="px-4 text-xl ml-3">
         Logout
       </button>
     </div>
