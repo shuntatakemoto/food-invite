@@ -10,10 +10,10 @@ const Header: React.FC = () => {
   return (
     <div className="bg-sub-color flex h-16 items-center justify-center">
       <Link to="/">
-        <h3 className="px-4 text-2xl mr-5">Food Invite</h3>
+        <h3 className="px-4 text-2xl">Food Invite</h3>
       </Link>
       {/* if文で現在のパスが/detailの時、Linkを/add-listに変更させる */}
-      <Link to="/create-list" className="mr-5">
+      <Link to="/create-list" className="mr-5 ml-5">
         <LibraryAddIcon fontSize="large" />
       </Link>
       <Link to="/bookmark">

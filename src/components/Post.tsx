@@ -17,7 +17,7 @@ interface PROPS {
   timestamp: any;
 }
 
-const WholePost: React.FC<PROPS> = (props) => {
+const Post: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   const [name, setName] = useState("");
   const [memo, setMemo] = useState("");
@@ -33,10 +33,12 @@ const WholePost: React.FC<PROPS> = (props) => {
       username: user.displayName,
     });
     setName("");
+    setMemo("");
+    setUrl("");
   };
   return (
-    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
-      <form onSubmit={newRestaurant}>
+    <div className="">
+      <form onSubmit={newRestaurant} action="./WholePost.tsx">
         <div>
           <input
             className=""
@@ -53,7 +55,7 @@ const WholePost: React.FC<PROPS> = (props) => {
             placeholder="店情報のURL"
             value={url}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
+              setUrl(e.target.value)
             }
           />
           <input
@@ -62,7 +64,7 @@ const WholePost: React.FC<PROPS> = (props) => {
             placeholder="一言メモ"
             value={memo}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
+              setMemo(e.target.value)
             }
           />
           <button
@@ -82,4 +84,4 @@ const WholePost: React.FC<PROPS> = (props) => {
   );
 };
 
-export default WholePost;
+export default Post;
