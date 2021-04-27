@@ -16,7 +16,6 @@ const MyPage: React.FC = () => {
       />
       <p className="text-2xl font-bold">{user.displayName}</p>
       <WholeMyList />
-      {/* <MyList /> */}
     </div>
   );
 };

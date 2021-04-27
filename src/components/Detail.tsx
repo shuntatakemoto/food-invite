@@ -1,7 +1,7 @@
 import React from "react";
 import MyList from "../components/MyList";
 
-const Detail = () => {
+const Detail: React.FC = () => {
   return (
     <div>
       <MyList />
