@@ -20,10 +20,15 @@ interface PROPS {
 const WholePost: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   const [name, setName] = useState("");
+  const [memo, setMemo] = useState("");
+  const [url, setUrl] = useState("");
+
   const newRestaurant = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     db.collection(user.uid).doc(props.postId).collection("restaurant").add({
       name: name,
+      memo: memo,
+      url: url,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       username: user.displayName,
     });
@@ -42,6 +47,24 @@ const WholePost: React.FC<PROPS> = (props) => {
               setName(e.target.value)
             }
           />
+          <input
+            className=""
+            type="text"
+            placeholder="店情報のURL"
+            value={url}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+          />
+          <input
+            className=""
+            type="text"
+            placeholder="一言メモ"
+            value={memo}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+          />
           <button
             disabled={!name}
             className={
@@ -51,7 +74,7 @@ const WholePost: React.FC<PROPS> = (props) => {
             }
             type="submit"
           >
-            <CheckCircleIcon className="" />
+            <CheckCircleIcon fontSize="large" />
           </button>
         </div>
       </form>
