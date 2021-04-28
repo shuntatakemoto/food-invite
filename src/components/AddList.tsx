@@ -4,6 +4,7 @@ import { storage, db, auth } from "../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
+import { useHistory } from "react-router-dom";
 
 const AddList: React.FC = () => {
   const user = useSelector(selectUser);
@@ -11,6 +12,11 @@ const AddList: React.FC = () => {
   const [uploadText, setUploadText] = useState("");
   const [memo, setMemo] = useState("");
   const [restaurantUrl, setRestaurantUrl] = useState("");
+
+  // const backButton :React.FC=()=>{
+  //   const history = useHistory();
+  //   history.push("/home");
+  // }
 
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
@@ -138,6 +144,7 @@ const AddList: React.FC = () => {
           <button
             type="submit"
             disabled={!uploadText}
+            // onClick={}
             className={
               uploadText
                 ? "bg-sub-color p-2 rounded-2xl mb-5"
