@@ -38,7 +38,7 @@ const Post: React.FC<PROPS> = (props) => {
   };
   return (
     <div className="">
-      <form onSubmit={newRestaurant} action="./WholePost.tsx">
+      <form onSubmit={newRestaurant}>
         <div>
           <input
             className=""
