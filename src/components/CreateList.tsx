@@ -3,11 +3,13 @@ import firebase from "firebase/app";
 import { storage, db, auth } from "../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
+import { useHistory } from "react-router-dom";
 
 const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
   //   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [listName, setListName] = useState("");
+  const history = useHistory();
 
   //   リストにサムネイル画像をつける場合
   //   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +29,7 @@ const CreateList: React.FC = () => {
       listname: listName,
     });
     setListName("");
+    history.push("/");
   };
 
   return (
