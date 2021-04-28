@@ -1,6 +1,6 @@
 import React from "react";
 import MyList from "../components/MyList";
-
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -13,8 +13,11 @@ const Detail: React.FC<PROPS> = (props) => {
     <div>
       <div>
         <h3>リスト名{props.listname}</h3>
+        <Link to="./add-List">
+          <p>店を追加する</p>
+        </Link>
       </div>
-      <MyList />
+      {/* <MyList /> */}
     </div>
   );
 };
