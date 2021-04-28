@@ -6,17 +6,21 @@ import { selectUser } from "../features/userSlice";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { useHistory } from "react-router-dom";
 
-const AddList: React.FC = () => {
+interface PROPS {
+  postId: string;
+  avatar: string;
+  image: string;
+  username: string;
+  timestamp: any;
+}
+
+const AddList: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   const [uploadImage, setUploadImage] = useState<File | null>(null);
-  const [uploadText, setUploadText] = useState("");
+  const [name, setName] = useState("");
   const [memo, setMemo] = useState("");
   const [restaurantUrl, setRestaurantUrl] = useState("");
-
-  // const backButton :React.FC=()=>{
-  //   const history = useHistory();
-  //   history.push("/home");
-  // }
+  const history = useHistory();
 
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
@@ -47,33 +51,43 @@ const AddList: React.FC = () => {
             .child(fileName)
             .getDownloadURL()
             .then(async (url) => {
-              await db.collection(user.uid).add({
-                avatar: user.photoUrl,
-                image: url,
-                text: uploadText,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                username: user.displayName,
-                memo: memo,
-                url: restaurantUrl,
-              });
+              // await db.collection(user.uid).add({
+              //   avatar: user.photoUrl,
+              //   image: url,
+              //   text: uploadText,
+              //   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+              //   username: user.displayName,
+              //   memo: memo,
+              //   url: restaurantUrl,
+              // });
+
+              db.collection(user.uid)
+                .doc(props.postId)
+                .collection("restaurant")
+                .add({
+                  name: name,
+                  memo: memo,
+                  url: restaurantUrl,
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                  username: user.displayName,
+                });
             });
         }
       );
     } else {
-      db.collection(user.uid).add({
-        avatar: user.photoUrl,
-        image: "",
-        text: uploadText,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        username: user.displayName,
+      db.collection(user.uid).doc(props.postId).collection("restaurant").add({
+        name: name,
         memo: memo,
         url: restaurantUrl,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        username: user.displayName,
       });
     }
     setUploadImage(null);
-    setUploadText("");
+    setName("");
     setMemo("");
     setRestaurantUrl("");
+    history.push("/");
   };
   return (
     <>
@@ -87,8 +101,8 @@ const AddList: React.FC = () => {
                 placeholder="店名を入力"
                 type="text"
                 autoFocus
-                value={uploadText}
-                onChange={(e) => setUploadText(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </label>
           </div>
@@ -143,10 +157,10 @@ const AddList: React.FC = () => {
         <div className="mt-5">
           <button
             type="submit"
-            disabled={!uploadText}
+            disabled={!name}
             // onClick={}
             className={
-              uploadText
+              name
                 ? "bg-sub-color p-2 rounded-2xl mb-5"
                 : "text-gray-300 p-2 rounded-2xl mb-5"
             }
