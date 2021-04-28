@@ -17,7 +17,7 @@ const Detail: React.FC<PROPS> = (props) => {
           <p>店を追加する</p>
         </Link>
       </div>
-      {/* <MyList /> */}
+      <MyList />
     </div>
   );
 };

@@ -51,16 +51,6 @@ const AddList: React.FC<PROPS> = (props) => {
             .child(fileName)
             .getDownloadURL()
             .then(async (url) => {
-              // await db.collection(user.uid).add({
-              //   avatar: user.photoUrl,
-              //   image: url,
-              //   text: uploadText,
-              //   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              //   username: user.displayName,
-              //   memo: memo,
-              //   url: restaurantUrl,
-              // });
-
               db.collection(user.uid)
                 .doc(props.postId)
                 .collection("restaurant")
@@ -92,6 +82,7 @@ const AddList: React.FC<PROPS> = (props) => {
   return (
     <>
       <form onSubmit={addList} className="pl-5 ">
+        {console.log(props.postId)}
         <div>
           <div>
             <label>
@@ -158,7 +149,6 @@ const AddList: React.FC<PROPS> = (props) => {
           <button
             type="submit"
             disabled={!name}
-            // onClick={}
             className={
               name
                 ? "bg-sub-color p-2 rounded-2xl mb-5"

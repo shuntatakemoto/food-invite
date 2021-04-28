@@ -14,6 +14,7 @@ const MyList: React.FC = () => {
       text: "",
       timestamp: null,
       username: "",
+      name: "",
     },
   ]);
 
@@ -31,6 +32,7 @@ const MyList: React.FC = () => {
             text: doc.data().text,
             timestamp: doc.data().timestamp,
             username: doc.data().username,
+            name: doc.data().name,
           }))
         )
       );
@@ -51,6 +53,7 @@ const MyList: React.FC = () => {
               image={post.image}
               timestamp={post.timestamp}
               username={post.username}
+              name={post.name}
             />
           ))}
         </>
