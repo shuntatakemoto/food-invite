@@ -41,18 +41,20 @@ const Post: React.FC<PROPS> = (props) => {
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
       <Link to="/detail">
-        <a className="">
-          <div className="">
-            <img
-              src={props.avatar}
-              alt=""
-              className="w-full rounded-lg rounded-b-none"
-            />
-          </div>
-          <div className="p-4 text-center">
-            <p className="text-lg">{props.name}</p>
-          </div>
-        </a>
+        {/* <a className=""> */}
+        <div className="">
+          <img
+            src={props.avatar}
+            alt=""
+            className="w-full rounded-lg rounded-b-none"
+          />
+        </div>
+        <div className="p-4 text-center">
+          <p className="text-lg">{props.name}</p>
+          <p>{props.postId}</p>
+          {/* <p>{props.listname}</p> */}
+        </div>
+        {/* </a> */}
       </Link>
     </div>
   );

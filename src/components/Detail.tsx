@@ -18,6 +18,7 @@ const Detail: React.FC<PROPS> = (props) => {
         </Link>
       </div>
       <MyList />
+      <p>{props.postId}</p>
     </div>
   );
 };

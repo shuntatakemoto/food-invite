@@ -32,7 +32,7 @@ const WholePost: React.FC<PROPS> = (props) => {
           </div>
           <div className="p-4 text-center">
             <p className="text-lg">{props.listname}</p>
-            {console.log(props.postId)}
+            <p>{props.postId}</p>
           </div>
         </a>
       </Link>
