@@ -1,6 +1,6 @@
 import React from "react";
 
-const Bookmark = () => {
+const Bookmark: React.FC = () => {
   return (
     <div>
       <div>
