@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyItem = () => {
+const MyItem: React.FC = () => {
   return (
     <div>
       <p>MyItem.tsx</p>
