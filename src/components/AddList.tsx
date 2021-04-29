@@ -28,6 +28,7 @@ const AddList: React.FC<PROPS> = (props) => {
       e.target.value = "";
     }
   };
+
   const addList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (uploadImage) {
@@ -82,7 +83,6 @@ const AddList: React.FC<PROPS> = (props) => {
   return (
     <>
       <form onSubmit={addList} className="pl-5 ">
-        {console.log(props.postId)}
         <div>
           <div>
             <label>
