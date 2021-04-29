@@ -15,6 +15,7 @@ const MyList: React.FC = () => {
       timestamp: null,
       username: "",
       name: "",
+      listname: "",
     },
   ]);
 
@@ -33,6 +34,7 @@ const MyList: React.FC = () => {
             timestamp: doc.data().timestamp,
             username: doc.data().username,
             name: doc.data().name,
+            listname: doc.data().listname,
           }))
         )
       );
@@ -43,6 +45,7 @@ const MyList: React.FC = () => {
 
   return (
     <div>
+      <p>MyList.tsx</p>
       {posts[0]?.id && (
         <>
           {posts.map((post) => (
@@ -54,6 +57,7 @@ const MyList: React.FC = () => {
               timestamp={post.timestamp}
               username={post.username}
               name={post.name}
+              listname={post.listname}
             />
           ))}
         </>

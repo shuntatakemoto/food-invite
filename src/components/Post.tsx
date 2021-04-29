@@ -16,6 +16,7 @@ interface PROPS {
   username: string;
   timestamp: any;
   name: string;
+  listname: string;
 }
 
 const Post: React.FC<PROPS> = (props) => {
@@ -40,8 +41,8 @@ const Post: React.FC<PROPS> = (props) => {
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
-      <Link to="/detail">
-        {/* <a className=""> */}
+      <p>Post.tsx</p>
+      <Link to="/my-item">
         <div className="">
           <img
             src={props.avatar}
@@ -50,11 +51,9 @@ const Post: React.FC<PROPS> = (props) => {
           />
         </div>
         <div className="p-4 text-center">
-          <p className="text-lg">{props.name}</p>
+          {/* <p className="text-lg">{props.listname}</p> */}
           <p>{props.postId}</p>
-          {/* <p>{props.listname}</p> */}
         </div>
-        {/* </a> */}
       </Link>
     </div>
   );

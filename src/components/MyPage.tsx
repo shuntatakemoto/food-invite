@@ -9,6 +9,7 @@ const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
   return (
     <div className="bg-main-color">
+      <p>MyPage.tsx</p>
       <img
         src={user.photoUrl.replace("normal", "200x200")}
         alt="profile image"

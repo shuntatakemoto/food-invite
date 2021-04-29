@@ -11,6 +11,7 @@ interface PROPS {
 const Detail: React.FC<PROPS> = (props) => {
   return (
     <div>
+      <p>Detail.tsx</p>
       <div>
         <h3>リスト名{props.listname}</h3>
         <Link to="./add-List">
@@ -18,7 +19,7 @@ const Detail: React.FC<PROPS> = (props) => {
         </Link>
       </div>
       <MyList />
-      <p>{props.postId}</p>
+      {/* <p>{props.postId}</p> */}
     </div>
   );
 };

@@ -13,6 +13,7 @@ import AddList from "../components/AddList";
 import WholeMyList from "../components/WholeMyList";
 import Detail from "../components/Detail";
 import Bookmark from "../components/Bookmark";
+import MyItem from "../components/MyItem";
 
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
       <Route path={"/add-list"} component={AddList} />
       <Route path={"/detail"} component={Detail} />
       <Route path={"/bookmark"} component={Bookmark} />
+      <Route path={"/my-item"} component={MyItem} />
       <Footer />
     </>
   );
