@@ -17,9 +17,8 @@ const WholeMyList: React.FC = () => {
   ]);
 
   useEffect(() => {
-    const id = user.uid;
     const unSub = db
-      .collection(id)
+      .collection(user.uid)
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setPosts(
