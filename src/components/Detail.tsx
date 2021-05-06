@@ -20,8 +20,6 @@ const Detail: React.FC<PROPS> = (props) => {
         <p>保存する</p>
       </div>
       <MyList />
-      <p>test</p>
-      <p>{props.postId}</p>
     </div>
   );
 };

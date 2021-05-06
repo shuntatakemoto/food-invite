@@ -3,9 +3,11 @@ import { db } from "../firebase";
 import Post from "../components/Post";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
+import { selectPost } from "../features/postSlice";
 
 const MyList: React.FC = () => {
   const user = useSelector(selectUser);
+  const storePostId = useSelector(selectPost);
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -23,6 +25,8 @@ const MyList: React.FC = () => {
     // const id = user.uid;
     const unSub = db
       .collection(user.uid)
+      .doc(storePostId.postId)
+      .collection("restaurant")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setPosts(

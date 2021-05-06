@@ -20,25 +20,6 @@ interface PROPS {
 }
 
 const Post: React.FC<PROPS> = (props) => {
-  // const user = useSelector(selectUser);
-  // const [name, setName] = useState("");
-  // const [memo, setMemo] = useState("");
-  // const [url, setUrl] = useState("");
-
-  // const newRestaurant = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   db.collection(user.uid).doc(props.postId).collection("restaurant").add({
-  //     name: name,
-  //     memo: memo,
-  //     url: url,
-  //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  //     username: user.displayName,
-  //   });
-  //   setName("");
-  //   setMemo("");
-  //   setUrl("");
-  // };
-
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
       <p>Post.tsx</p>
@@ -51,7 +32,7 @@ const Post: React.FC<PROPS> = (props) => {
           />
         </div>
         <div className="p-4 text-center">
-          {/* <p className="text-lg">{props.listname}</p> */}
+          <p>{props.name}</p>
           <p>{props.postId}</p>
         </div>
       </Link>
