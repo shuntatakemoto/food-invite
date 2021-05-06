@@ -1,6 +1,8 @@
 import React from "react";
 import MyList from "../components/MyList";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectPost } from "../features/postSlice";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -9,11 +11,12 @@ interface PROPS {
   timestamp: any;
 }
 const Detail: React.FC<PROPS> = (props) => {
+  const storeListName = useSelector(selectPost);
   return (
     <div>
       <p>Detail.tsx</p>
       <div>
-        <h3>リスト名{props.listname}</h3>
+        <h3>リスト名{storeListName.listName}</h3>
         <Link to="./add-List">
           <p>店を追加する</p>
         </Link>

@@ -13,7 +13,7 @@ export const postSlice = createSlice({
       state.post.postId = action.payload;
     },
     getListName: (state, action) => {
-      state.post = action.payload;
+      state.post.listName = action.payload;
     },
   },
 });
