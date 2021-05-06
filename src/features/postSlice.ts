@@ -2,23 +2,24 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
 
 //postIdをAddList.tsxに流す
-export const userSlice = createSlice({
+export const postSlice = createSlice({
   name: "post",
   initialState: {
-    post: { postId: "" },
+    post: { postId: "", listName: "" },
   },
   reducers: {
-    login: (state, action) => {
+    //actionにPayloadAction<string>の型が必要かも
+    getPostId: (state, action) => {
       state.post = action.payload;
     },
-    logout: (state) => {
-      state.post = { postId: "" };
+    getListName: (state, action) => {
+      state.post = action.payload;
     },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { getPostId, getListName } = postSlice.actions;
 
-export const selectUser = (state: RootState) => state.user.user;
+export const selectPost = (state: RootState) => state.post.post;
 
-export default userSlice.reducer;
+export default postSlice.reducer;
