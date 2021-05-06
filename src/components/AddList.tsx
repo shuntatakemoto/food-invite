@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { useHistory } from "react-router-dom";
+import { selectPost } from "../features/postSlice";
 
 interface PROPS {
   postId: string;
@@ -21,6 +22,12 @@ const AddList: React.FC<PROPS> = (props) => {
   const [memo, setMemo] = useState("");
   const [restaurantUrl, setRestaurantUrl] = useState("");
   const history = useHistory();
+  const storePostId = useSelector(selectPost);
+
+  console.log("テスト1です");
+  console.log(storePostId.postId);
+  console.log("テスト2です");
+  console.log(storePostId);
 
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
@@ -53,7 +60,7 @@ const AddList: React.FC<PROPS> = (props) => {
             .getDownloadURL()
             .then(async (url) => {
               db.collection(user.uid)
-                .doc(props.postId)
+                .doc(storePostId.postId)
                 .collection("restaurant")
                 .add({
                   name: name,
@@ -66,22 +73,25 @@ const AddList: React.FC<PROPS> = (props) => {
         }
       );
     } else {
-      db.collection(user.uid).doc(props.postId).collection("restaurant").add({
-        name: name,
-        memo: memo,
-        url: restaurantUrl,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        username: user.displayName,
-      });
+      db.collection(user.uid)
+        .doc(storePostId.postId)
+        .collection("restaurant")
+        .add({
+          name: name,
+          memo: memo,
+          url: restaurantUrl,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          username: user.displayName,
+        });
     }
     setUploadImage(null);
     setName("");
     setMemo("");
     setRestaurantUrl("");
     history.push("/");
-    console.log("postIdを表示します");
-    console.log(props);
-    console.log(props.postId);
+    // console.log("postIdを表示します");
+    // console.log(props);
+    // console.log(props.postId);
   };
   return (
     <>

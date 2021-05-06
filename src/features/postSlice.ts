@@ -10,7 +10,7 @@ export const postSlice = createSlice({
   reducers: {
     //actionにPayloadAction<string>の型が必要かも
     getPostId: (state, action) => {
-      state.post = action.payload;
+      state.post.postId = action.payload;
     },
     getListName: (state, action) => {
       state.post = action.payload;
