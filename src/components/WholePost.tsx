@@ -21,11 +21,11 @@ interface PROPS {
 const WholePost: React.FC<PROPS> = (props) => {
   const post = useSelector(selectPost);
   const dispatch = useDispatch();
-  const postid = props.postId;
+  // const postid = props.postId;
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
-      <Link to="/detail" onClick={() => dispatch(getPostId(postid))}>
+      <Link to="/detail" onClick={() => dispatch(getPostId(props.postId))}>
         <p>WholePost.tsx</p>
         <div className="">
           <img
@@ -36,7 +36,7 @@ const WholePost: React.FC<PROPS> = (props) => {
         </div>
         <div className="p-4 text-center">
           <p className="text-lg">{props.listname}</p>
-          <p>{postid}</p>
+          <p>{props.postId}</p>
         </div>
       </Link>
     </div>
