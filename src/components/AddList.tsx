@@ -21,6 +21,7 @@ const AddList: React.FC<PROPS> = (props) => {
   const [name, setName] = useState("");
   const [memo, setMemo] = useState("");
   const [restaurantUrl, setRestaurantUrl] = useState("");
+  const [fileUrl, setFileUrl] = useState<any>(null);
   const history = useHistory();
   const storePostId = useSelector(selectPost);
 
@@ -29,12 +30,21 @@ const AddList: React.FC<PROPS> = (props) => {
   console.log("テスト2です");
   console.log(storePostId);
 
-  const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeImageHandler = (e: any) => {
     if (e.target.files![0]) {
       setUploadImage(e.target.files![0]);
+      const imageFile = e.target.files[0];
+      const imageUrl = URL.createObjectURL(imageFile);
+      setFileUrl(imageUrl);
       e.target.value = "";
     }
   };
+
+  // const processImage = (e: any) => {
+  //   const imageFile = e.target.files[0];
+  //   const imageUrl = URL.createObjectURL(imageFile);
+  //   setFileUrl(imageUrl);
+  // };
 
   const addList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -125,6 +135,10 @@ const AddList: React.FC<PROPS> = (props) => {
                 onChange={onChangeImageHandler}
               />
             </label>
+            {/* プレビュー画像を表示 */}
+            <div className="w-3/4">
+              <img src={fileUrl}></img>
+            </div>
           </div>
 
           <div>
