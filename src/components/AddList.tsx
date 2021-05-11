@@ -92,7 +92,7 @@ const AddList: React.FC<PROPS> = (props) => {
   };
   return (
     <>
-      <form onSubmit={addList} className="pl-5 ">
+      <form onSubmit={addList} className="pl-5 flex-1">
         <div>
           <div>
             <label>

@@ -2,7 +2,7 @@ import React from "react";
 
 const MyItem: React.FC = () => {
   return (
-    <div>
+    <div className="flex-1">
       <p>MyItem.tsx</p>
     </div>
   );

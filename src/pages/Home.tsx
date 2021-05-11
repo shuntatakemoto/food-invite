@@ -18,7 +18,7 @@ import MyItem from "../components/MyItem";
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
   return (
-    <>
+    <div className="bg-main-color flex min-h-screen flex-col ">
       <Header />
       {user.uid && <Route exact path={"/"} component={MyPage} />}
       <Route path={"/create-list"} component={CreateList} />
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       <Route path={"/bookmark"} component={Bookmark} />
       <Route path={"/my-item"} component={MyItem} />
       <Footer />
-    </>
+    </div>
   );
 };
 

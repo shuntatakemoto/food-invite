@@ -34,7 +34,7 @@ const CreateList: React.FC = () => {
 
   return (
     <>
-      <form onSubmit={createList} className="pl-5 ">
+      <form onSubmit={createList} className="pl-5 flex-1">
         <div>
           <div>
             <label>
