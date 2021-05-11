@@ -20,8 +20,8 @@ const Detail: React.FC<PROPS> = (props) => {
         <Link to="./add-List">
           <p>店を追加する</p>
         </Link>
-        <p>保存する</p>
-        <p>削除する</p>
+        <p>このリストを保存する</p>
+        <p>このリストを削除する</p>
       </div>
       <MyList />
     </div>
