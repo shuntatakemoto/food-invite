@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
 import firebase from "firebase/app";
 import { selectUser } from "../features/userSlice";
-import { Avatar } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import MessageIcon from "@material-ui/icons/Message";
-import SendIcon from "@material-ui/icons/Send";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-
 import { useSelector, useDispatch } from "react-redux";
 import { getPostId, getListName, selectPost } from "../features/postSlice";
 interface PROPS {

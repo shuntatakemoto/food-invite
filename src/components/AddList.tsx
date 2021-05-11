@@ -89,9 +89,6 @@ const AddList: React.FC<PROPS> = (props) => {
     setMemo("");
     setRestaurantUrl("");
     history.push("/");
-    // console.log("postIdを表示します");
-    // console.log(props);
-    // console.log(props.postId);
   };
   return (
     <>

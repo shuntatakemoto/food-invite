@@ -22,7 +22,6 @@ const MyList: React.FC = () => {
   ]);
 
   useEffect(() => {
-    // const id = user.uid;
     const unSub = db
       .collection(user.uid)
       .doc(storePostId.postId)

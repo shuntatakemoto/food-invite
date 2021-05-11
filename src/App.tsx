@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser, login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
-import MyPage from "./components/MyPage";
 import Auth from "./components/Auth";
 import Home from "./pages/Home";
-// import MyList from "./components/MyList"
-import { BrowserRouter, Route } from "react-router-dom";
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
