@@ -16,7 +16,7 @@ const Detail: React.FC<PROPS> = (props) => {
     <div>
       <p>Detail.tsx</p>
       <div>
-        <h3>リスト名{storeListName.listName}</h3>
+        <h3 className="text-3xl text-center">{storeListName.listName}</h3>
         <Link to="./add-List">
           <p>店を追加する</p>
         </Link>
