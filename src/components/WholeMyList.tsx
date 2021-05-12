@@ -9,7 +9,7 @@ const WholeMyList: React.FC = () => {
   const [posts, setPosts] = useState([
     {
       id: "",
-      avatar: "",
+      // avatar: "",
       listname: "",
       username: "",
       timestamp: null,
@@ -45,7 +45,7 @@ const WholeMyList: React.FC = () => {
             <WholePost
               key={post.id}
               postId={post.id}
-              avatar={post.avatar}
+              // avatar={post.avatar}
               listname={post.listname}
               timestamp={post.timestamp}
               username={post.username}

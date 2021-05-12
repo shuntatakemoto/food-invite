@@ -4,6 +4,8 @@ import { storage, db, auth } from "../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import { useHistory } from "react-router-dom";
+import "emoji-mart/css/emoji-mart.css";
+import { Picker } from "emoji-mart";
 
 const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
@@ -35,7 +37,7 @@ const CreateList: React.FC = () => {
   return (
     <>
       <form onSubmit={createList} className="pl-5 flex-1">
-        <div>
+        <div className="mb-5">
           <div>
             <label>
               リスト名を入力
@@ -50,7 +52,11 @@ const CreateList: React.FC = () => {
             </label>
           </div>
         </div>
-        <div className="mt-5">
+        <div className="mb-5">
+          <p className="pb-5">絵文字を設定</p>
+          <Picker set="twitter" />
+        </div>
+        <div className="mb-5">
           <button
             type="submit"
             disabled={!listName}
