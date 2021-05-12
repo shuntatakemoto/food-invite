@@ -34,7 +34,7 @@ const WholePost: React.FC<PROPS> = (props) => {
             alt=""
             className="w-full rounded-lg rounded-b-none"
           /> */}
-          <Emoji emoji="thinking_face" size={64} />
+          <Emoji emoji="thinking_face" size={64} set="twitter" />
         </div>
         <div className="text-center h-1/3">
           <p className="text-base">{props.listname}</p>
