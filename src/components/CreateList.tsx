@@ -11,7 +11,7 @@ const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
   //   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [listName, setListName] = useState("");
-  const [emoji, setEmoji] = useState("");
+  const [emojiName, setEmojiName] = useState("");
   const history = useHistory();
 
   //   リストにサムネイル画像をつける場合
@@ -30,10 +30,10 @@ const CreateList: React.FC = () => {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       username: user.displayName,
       listname: listName,
-      emoji: emoji,
+      emojiname: emojiName,
     });
     setListName("");
-    setEmoji("");
+    setEmojiName("");
     history.push("/");
   };
 
@@ -59,9 +59,9 @@ const CreateList: React.FC = () => {
           <p className="pb-5">絵文字を設定</p>
           <Picker
             set="twitter"
-            onSelect={(emoji) => setEmoji(JSON.stringify(emoji.id))}
+            onSelect={(emoji) => setEmojiName(JSON.stringify(emoji.id))}
           />
-          {console.log(emoji)}
+          {console.log(emojiName)}
         </div>
         <div className="mb-5">
           <button
