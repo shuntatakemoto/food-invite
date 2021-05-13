@@ -12,11 +12,15 @@ interface PROPS {
   listname: string;
   username: string;
   timestamp: any;
+  emojiname: string;
 }
 
 const WholePost: React.FC<PROPS> = (props) => {
   const post = useSelector(selectPost);
   const dispatch = useDispatch();
+  const emojiName = props.emojiname;
+  //ダブルクオテーションを削除している
+  const newEmojiName = emojiName.replace(/\"/g, "");
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5 h-48">
@@ -34,7 +38,8 @@ const WholePost: React.FC<PROPS> = (props) => {
             alt=""
             className="w-full rounded-lg rounded-b-none"
           /> */}
-          <Emoji emoji="thinking_face" size={64} set="twitter" />
+          {/* {console.log(props.emojiname)} */}
+          <Emoji emoji={newEmojiName} size={64} set="twitter" />
         </div>
         <div className="text-center h-1/3">
           <p className="text-base">{props.listname}</p>

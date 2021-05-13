@@ -13,6 +13,7 @@ const WholeMyList: React.FC = () => {
       listname: "",
       username: "",
       timestamp: null,
+      emojiname: "",
     },
   ]);
 
@@ -28,6 +29,7 @@ const WholeMyList: React.FC = () => {
             listname: doc.data().listname,
             timestamp: doc.data().timestamp,
             username: doc.data().username,
+            emojiname: doc.data().emojiname,
           }))
         )
       );
@@ -49,6 +51,7 @@ const WholeMyList: React.FC = () => {
               listname={post.listname}
               timestamp={post.timestamp}
               username={post.username}
+              emojiname={post.emojiname}
             />
           ))}
         </>
