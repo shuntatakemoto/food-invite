@@ -4,7 +4,12 @@ import firebase from "firebase/app";
 import { selectUser } from "../features/userSlice";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getPostId, getListName, selectPost } from "../features/postSlice";
+import {
+  getPostId,
+  getListName,
+  getEmojiName,
+  selectPost,
+} from "../features/postSlice";
 import { Emoji } from "emoji-mart";
 interface PROPS {
   postId: string;
@@ -29,6 +34,7 @@ const WholePost: React.FC<PROPS> = (props) => {
         onClick={() => {
           dispatch(getPostId(props.postId));
           dispatch(getListName(props.listname));
+          dispatch(getEmojiName(props.emojiname));
         }}
       >
         <div className="h-2/3 text-center pt-2">

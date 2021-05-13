@@ -5,7 +5,7 @@ import { RootState } from "../app/store";
 export const postSlice = createSlice({
   name: "post",
   initialState: {
-    post: { postId: "", listName: "" },
+    post: { postId: "", listName: "", emojiName: "" },
   },
   reducers: {
     //actionにPayloadAction<string>の型が必要かも
@@ -15,10 +15,13 @@ export const postSlice = createSlice({
     getListName: (state, action) => {
       state.post.listName = action.payload;
     },
+    getEmojiName: (state, action) => {
+      state.post.emojiName = action.payload;
+    },
   },
 });
 
-export const { getPostId, getListName } = postSlice.actions;
+export const { getPostId, getListName, getEmojiName } = postSlice.actions;
 
 export const selectPost = (state: RootState) => state.post.post;
 
