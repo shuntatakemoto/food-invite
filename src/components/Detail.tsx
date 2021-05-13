@@ -3,6 +3,7 @@ import MyList from "../components/MyList";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectPost } from "../features/postSlice";
+import { selectUser } from "../features/userSlice";
 import { Emoji } from "emoji-mart";
 interface PROPS {
   postId: string;
@@ -13,12 +14,23 @@ interface PROPS {
   emojiname: string;
 }
 const Detail: React.FC<PROPS> = (props) => {
+  const user = useSelector(selectUser);
   const storeEmojiName = useSelector(selectPost);
   const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
 
   return (
     <div className="flex-1">
       <p>Detail.tsx</p>
+      <div className="flex">
+        <div className="w-8 mr-5">
+          <img
+            src={user.photoUrl.replace("normal", "200x200")}
+            alt="profile image"
+            className="w-40"
+          />
+        </div>
+        <p>Created by {user.displayName}</p>
+      </div>
       <div>
         <div className="text-center py-5">
           <Emoji emoji={newEmojiName} size={64} set="twitter" />
