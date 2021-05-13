@@ -41,6 +41,7 @@ const WholeMyList: React.FC = () => {
   return (
     <div>
       <p>WholeMyList.tsx</p>
+      <p className="text-center text-2xl py-5">My list</p>
       {posts[0]?.id && (
         <>
           {posts.map((post) => (
