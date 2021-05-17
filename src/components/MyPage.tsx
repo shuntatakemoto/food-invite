@@ -12,7 +12,7 @@ const MyPage: React.FC = () => {
       <img
         src={user.photoUrl.replace("normal", "200x200")}
         alt="profile image"
-        className="w-40"
+        className="w-40 rounded-3xl"
       />
       <p className="text-2xl font-bold">{user.displayName}</p>
       <WholeMyList />
