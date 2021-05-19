@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import firebase from "firebase/app";
-import { selectUser } from "../features/userSlice";
+import { selectUser } from "../../features/userSlice";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -9,7 +9,7 @@ import {
   getListName,
   getEmojiName,
   selectPost,
-} from "../features/postSlice";
+} from "../../features/postSlice";
 import { Emoji } from "emoji-mart";
 interface PROPS {
   postId: string;

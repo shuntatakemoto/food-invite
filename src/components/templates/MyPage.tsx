@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
-import WholeMyList from "../components/WholeMyList";
+import { selectUser } from "../../features/userSlice";
+import WholeMyList from "../organisms/WholeMyList";
 
 const MyPage: React.FC = () => {
   const user = useSelector(selectUser);

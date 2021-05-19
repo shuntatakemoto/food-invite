@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import LockIcon from "@material-ui/icons/Lock";
 import { useSelector } from "react-redux";
-import { selectUser, userSlice } from "../features/userSlice";
+import { selectUser, userSlice } from "../../features/userSlice";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import MyPage from "../components/MyPage";
-import MyList from "../components/MyList";
-import CreateList from "../components/CreateList";
-import AddList from "../components/AddList";
-import WholeMyList from "../components/WholeMyList";
-import Detail from "../components/Detail";
-import Bookmark from "../components/Bookmark";
-import MyItem from "../components/MyItem";
+import Header from "../molecules/Header";
+import Footer from "../molecules/Footer";
+import MyPage from "../templates/MyPage";
+import MyList from "../organisms/MyList";
+import CreateList from "../organisms/CreateList";
+import AddList from "../organisms/AddList";
+import WholeMyList from "../organisms/WholeMyList";
+import Detail from "../templates/Detail";
+import Bookmark from "../templates/Bookmark";
+import MyItem from "../templates/MyItem";
 
 const Home: React.FC = () => {
   const user = useSelector(selectUser);

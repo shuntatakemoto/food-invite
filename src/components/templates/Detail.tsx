@@ -1,9 +1,9 @@
 import React from "react";
-import MyList from "../components/MyList";
+import MyList from "../organisms/MyList";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectPost } from "../features/postSlice";
-import { selectUser } from "../features/userSlice";
+import { selectPost } from "../../features/postSlice";
+import { selectUser } from "../../features/userSlice";
 import { Emoji } from "emoji-mart";
 interface PROPS {
   postId: string;

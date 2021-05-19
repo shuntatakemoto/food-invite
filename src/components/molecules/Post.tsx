@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import firebase from "firebase/app";
 import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
+import { selectUser } from "../../features/userSlice";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 

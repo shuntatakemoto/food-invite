@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
+import { selectUser } from "../../features/userSlice";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 const Footer: React.FC = () => {

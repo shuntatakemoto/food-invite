@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { auth, provider, storage } from "../firebase";
+import { auth, provider, storage } from "../../firebase";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const Auth: React.FC = () => {

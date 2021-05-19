@@ -1,43 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
-import Post from "../components/Post";
+import { db } from "../../firebase";
+import WholePost from "../molecules/WholePost";
 import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
-import { selectPost } from "../features/postSlice";
+import { selectUser } from "../../features/userSlice";
 
-const MyList: React.FC = () => {
+const WholeMyList: React.FC = () => {
   const user = useSelector(selectUser);
-  const storePostId = useSelector(selectPost);
   const [posts, setPosts] = useState([
     {
       id: "",
-      avatar: "",
-      image: "",
-      text: "",
-      timestamp: null,
-      username: "",
-      name: "",
+      // avatar: "",
       listname: "",
+      username: "",
+      timestamp: null,
+      emojiname: "",
     },
   ]);
 
   useEffect(() => {
     const unSub = db
       .collection(user.uid)
-      .doc(storePostId.postId)
-      .collection("restaurant")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
         setPosts(
           snapshot.docs.map((doc) => ({
             id: doc.id,
             avatar: doc.data().avatar,
-            image: doc.data().image,
-            text: doc.data().text,
+            listname: doc.data().listname,
             timestamp: doc.data().timestamp,
             username: doc.data().username,
-            name: doc.data().name,
-            listname: doc.data().listname,
+            emojiname: doc.data().emojiname,
           }))
         )
       );
@@ -48,19 +40,19 @@ const MyList: React.FC = () => {
 
   return (
     <div>
-      <p>MyList.tsx</p>
+      <p>WholeMyList.tsx</p>
+      <p className="text-center text-2xl py-5">My list</p>
       {posts[0]?.id && (
         <>
           {posts.map((post) => (
-            <Post
+            <WholePost
               key={post.id}
               postId={post.id}
-              avatar={post.avatar}
-              image={post.image}
+              // avatar={post.avatar}
+              listname={post.listname}
               timestamp={post.timestamp}
               username={post.username}
-              name={post.name}
-              listname={post.listname}
+              emojiname={post.emojiname}
             />
           ))}
         </>
@@ -69,4 +61,4 @@ const MyList: React.FC = () => {
   );
 };
 
-export default MyList;
+export default WholeMyList;

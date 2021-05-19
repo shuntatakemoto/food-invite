@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
+import { selectUser } from "../../features/userSlice";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
