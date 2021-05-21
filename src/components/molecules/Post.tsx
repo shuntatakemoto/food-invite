@@ -18,7 +18,7 @@ interface PROPS {
 
 const Post: React.FC<PROPS> = (props) => {
   return (
-    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5">
+    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4">
       <p>Post.tsx</p>
       <Link to="/my-item">
         <div className="">

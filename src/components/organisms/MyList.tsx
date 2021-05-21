@@ -49,22 +49,24 @@ const MyList: React.FC = () => {
   return (
     <div>
       <p>MyList.tsx</p>
-      {posts[0]?.id && (
-        <>
-          {posts.map((post) => (
-            <Post
-              key={post.id}
-              postId={post.id}
-              avatar={post.avatar}
-              image={post.image}
-              timestamp={post.timestamp}
-              username={post.username}
-              name={post.name}
-              listname={post.listname}
-            />
-          ))}
-        </>
-      )}
+      <div className="flex flex-wrap">
+        {posts[0]?.id && (
+          <>
+            {posts.map((post) => (
+              <Post
+                key={post.id}
+                postId={post.id}
+                avatar={post.avatar}
+                image={post.image}
+                timestamp={post.timestamp}
+                username={post.username}
+                name={post.name}
+                listname={post.listname}
+              />
+            ))}
+          </>
+        )}
+      </div>
     </div>
   );
 };

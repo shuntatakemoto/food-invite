@@ -28,7 +28,7 @@ const WholePost: React.FC<PROPS> = (props) => {
   const newEmojiName = emojiName.replace(/\"/g, "");
 
   return (
-    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-5 h-48">
+    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4 h-48">
       <Link
         to="/detail"
         onClick={() => {

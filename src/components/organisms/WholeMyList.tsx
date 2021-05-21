@@ -42,21 +42,23 @@ const WholeMyList: React.FC = () => {
     <div>
       <p>WholeMyList.tsx</p>
       <p className="text-center text-2xl py-5">My list</p>
-      {posts[0]?.id && (
-        <>
-          {posts.map((post) => (
-            <WholePost
-              key={post.id}
-              postId={post.id}
-              // avatar={post.avatar}
-              listname={post.listname}
-              timestamp={post.timestamp}
-              username={post.username}
-              emojiname={post.emojiname}
-            />
-          ))}
-        </>
-      )}
+      <div className="flex flex-wrap">
+        {posts[0]?.id && (
+          <>
+            {posts.map((post) => (
+              <WholePost
+                key={post.id}
+                postId={post.id}
+                // avatar={post.avatar}
+                listname={post.listname}
+                timestamp={post.timestamp}
+                username={post.username}
+                emojiname={post.emojiname}
+              />
+            ))}
+          </>
+        )}
+      </div>
     </div>
   );
 };
