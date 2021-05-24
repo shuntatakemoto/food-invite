@@ -56,7 +56,9 @@ const AddList: React.FC<PROPS> = (props) => {
         .map((n) => S[n % S.length])
         .join("");
       const fileName = randomChar + "_" + uploadImage.name;
-      const uploadTweetImg = storage.ref(`images/${fileName}`).put(uploadImage);
+      const uploadTweetImg = storage
+        .ref(`${user.uid}/${fileName}`)
+        .put(uploadImage);
       uploadTweetImg.on(
         firebase.storage.TaskEvent.STATE_CHANGED,
         () => {},
@@ -65,7 +67,7 @@ const AddList: React.FC<PROPS> = (props) => {
         },
         async () => {
           await storage
-            .ref("images")
+            .ref(user.uid)
             .child(fileName)
             .getDownloadURL()
             .then(async (url) => {
@@ -73,6 +75,7 @@ const AddList: React.FC<PROPS> = (props) => {
                 .doc(storePostId.postId)
                 .collection("restaurant")
                 .add({
+                  imageurl: url,
                   name: name,
                   memo: memo,
                   url: restaurantUrl,

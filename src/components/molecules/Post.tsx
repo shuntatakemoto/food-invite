@@ -14,6 +14,9 @@ interface PROPS {
   timestamp: any;
   name: string;
   listname: string;
+  memo: string;
+  url: string;
+  imageurl: string;
 }
 
 const Post: React.FC<PROPS> = (props) => {
@@ -31,6 +34,10 @@ const Post: React.FC<PROPS> = (props) => {
         <div className="p-4 text-center">
           <p>{props.name}</p>
           <p>{props.postId}</p>
+          <p>{props.memo}</p>
+          <p>{props.url}</p>
+          <p>{props.username}</p>
+          <img src={props.imageurl} alt="" className="w-4 rounded-3xl" />
         </div>
       </Link>
     </div>

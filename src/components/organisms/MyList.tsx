@@ -18,6 +18,9 @@ const MyList: React.FC = () => {
       username: "",
       name: "",
       listname: "",
+      memo: "",
+      url: "",
+      imageurl: "",
     },
   ]);
 
@@ -38,6 +41,9 @@ const MyList: React.FC = () => {
             username: doc.data().username,
             name: doc.data().name,
             listname: doc.data().listname,
+            memo: doc.data().memo,
+            url: doc.data().url,
+            imageurl: doc.data().imageurl,
           }))
         )
       );
@@ -62,6 +68,9 @@ const MyList: React.FC = () => {
                 username={post.username}
                 name={post.name}
                 listname={post.listname}
+                memo={post.memo}
+                url={post.url}
+                imageurl={post.imageurl}
               />
             ))}
           </>
