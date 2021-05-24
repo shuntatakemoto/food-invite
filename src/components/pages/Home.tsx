@@ -3,7 +3,13 @@ import { auth } from "../../firebase";
 import LockIcon from "@material-ui/icons/Lock";
 import { useSelector } from "react-redux";
 import { selectUser, userSlice } from "../../features/userSlice";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 import Header from "../molecules/Header";
 import Footer from "../molecules/Footer";
 import MyPage from "../templates/MyPage";
@@ -17,9 +23,12 @@ import MyItem from "../templates/MyItem";
 
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
+  // const uid = user.uid;
   return (
     <div className="bg-main-color flex min-h-screen flex-col ">
       <Header />
+      {/* ユーザー毎にurlを変更しないとシェアできないのでは？ */}
+      {/* {user.uid && <Route exact path={"/user/:id"} component={MyPage} />} */}
       {user.uid && <Route exact path={"/"} component={MyPage} />}
       <Route path={"/create-list"} component={CreateList} />
       <Route path={"/my-list"} component={WholeMyList} />
