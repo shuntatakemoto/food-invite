@@ -6,6 +6,7 @@ import { selectPost } from "../../features/postSlice";
 import { selectUser } from "../../features/userSlice";
 import { Emoji } from "emoji-mart";
 import Button from "../atoms/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -33,16 +34,19 @@ const Detail: React.FC<PROPS> = (props) => {
         <p>Created by {user.displayName}</p>
       </div>
       <div>
-        <div className="text-center py-5">
+        <div className="text-center py-12">
           <Emoji emoji={newEmojiName} size={64} set="twitter" />
         </div>
-        <h3 className="text-3xl text-center">{storeEmojiName.listName}</h3>
+        <h3 className="text-3xl text-center mb-10">
+          {storeEmojiName.listName}
+        </h3>
         <Button
           buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
           buttonLink="./add-List"
         />
         <Button buttonText="このリストを保存する" buttonLink="./add-List" />
-        <Button buttonText="このリストを削除する" buttonLink="./add-List" />
+        {/* <Button buttonText="このリストを削除する" buttonLink="./add-List" /> */}
+        <DeleteIcon fontSize="large" />
       </div>
       <MyList />
     </div>

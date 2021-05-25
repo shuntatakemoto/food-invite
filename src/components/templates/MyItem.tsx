@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectItem } from "../../features/itemSlice";
 import Button from "../atoms/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
 interface PROPS {
   itemName: string;
   itemPostId: string;
@@ -17,6 +18,7 @@ const MyItem: React.FC<PROPS> = (props) => {
     <div className="flex-1">
       <p>MyItem.tsx</p>
       <p>この店を削除する</p>
+      <DeleteIcon fontSize="large" />
       <p className="text-center">{item.itemName}</p>
       <p className="text-center">{item.itemMemo}</p>
       {/* <p>{item.itemPostId}</p> */}
