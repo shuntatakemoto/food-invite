@@ -7,6 +7,8 @@ import { selectUser } from "../../features/userSlice";
 import { Emoji } from "emoji-mart";
 import Button from "../atoms/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { db } from "../../firebase";
+import { useHistory } from "react-router-dom";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -17,9 +19,23 @@ interface PROPS {
 }
 const Detail: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
+  const post = useSelector(selectPost);
   const storeEmojiName = useSelector(selectPost);
   const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
+  const history = useHistory();
 
+  const deleteList = () => {
+    db.collection(user.uid)
+      .doc(post.postId)
+      .delete()
+      .then(() => {
+        console.log("Document successfully deleted!");
+      })
+      .catch((error) => {
+        console.error("Error removing document: ", error);
+      });
+    history.push("/");
+  };
   return (
     <div className="flex-1">
       <p>Detail.tsx</p>
@@ -46,7 +62,7 @@ const Detail: React.FC<PROPS> = (props) => {
         />
         <Button buttonText="このリストを保存する" buttonLink="./add-List" />
         {/* <Button buttonText="このリストを削除する" buttonLink="./add-List" /> */}
-        <DeleteIcon fontSize="large" />
+        <DeleteIcon fontSize="large" onClick={deleteList} />
       </div>
       <MyList />
     </div>
