@@ -17,12 +17,16 @@ const MyItem: React.FC<PROPS> = (props) => {
     <div className="flex-1">
       <p>MyItem.tsx</p>
       <p>この店を削除する</p>
-      <p>{item.itemName}</p>
-      <p>{item.itemMemo}</p>
-      <p>{item.itemPostId}</p>
-      <p>{item.itemUrl}</p>
-      <p>{item.itemUserName}</p>
-      <img src={item.itemImageUrl} alt="" className="w-4 rounded-3xl" />
+      <p className="text-center">{item.itemName}</p>
+      <p className="text-center">{item.itemMemo}</p>
+      {/* <p>{item.itemPostId}</p> */}
+      <p className="text-center">
+        <a href={item.itemUrl}>詳しい店情報</a>
+      </p>
+      <div className="text-center w-2/3">
+        <img src={item.itemImageUrl} alt="" />
+      </div>
+      <p>added by {item.itemUserName}</p>
     </div>
   );
 };

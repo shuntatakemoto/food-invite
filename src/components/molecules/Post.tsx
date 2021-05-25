@@ -30,12 +30,6 @@ interface PROPS {
 const Post: React.FC<PROPS> = (props) => {
   const post = useSelector(selectItem);
   const dispatch = useDispatch();
-  // const itemName = props.name;
-  // const itemPostId = props.postId;
-  // const itemMemo = props.memo;
-  // const itemUrl = props.url;
-  // const itemUserName = props.username;
-  // const itemImageUrl = props.imageurl;
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4">
@@ -60,11 +54,11 @@ const Post: React.FC<PROPS> = (props) => {
         </div>
         <div className="p-4 text-center">
           <p>{props.name}</p>
-          <p>{props.postId}</p>
+          {/* <p>{props.postId}</p>
           <p>{props.memo}</p>
           <p>{props.url}</p>
           <p>{props.username}</p>
-          <img src={props.imageurl} alt="" className="w-4 rounded-3xl" />
+          <img src={props.imageurl} alt="" className="w-4 rounded-3xl" /> */}
         </div>
       </Link>
     </div>
