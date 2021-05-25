@@ -9,23 +9,13 @@ import { Picker } from "emoji-mart";
 
 const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
-  //   const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [listName, setListName] = useState("");
   const [emojiName, setEmojiName] = useState("");
   const history = useHistory();
 
-  //   リストにサムネイル画像をつける場合
-  //   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     if (e.target.files![0]) {
-  //       setUploadImage(e.target.files![0]);
-  //       e.target.value = "";
-  //     }
-  //   };
-
   const createList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     db.collection(user.uid).add({
-      //   image: "",
       avatar: user.photoUrl,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       username: user.displayName,
@@ -39,6 +29,7 @@ const CreateList: React.FC = () => {
 
   return (
     <>
+      <h3>リストを作成</h3>
       <form onSubmit={createList} className="pl-5 flex-1">
         <div className="mb-5">
           <div>

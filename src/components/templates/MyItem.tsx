@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectItem } from "../../features/itemSlice";
-
+import Button from "../atoms/Button";
 interface PROPS {
   itemName: string;
   itemPostId: string;
@@ -20,11 +20,13 @@ const MyItem: React.FC<PROPS> = (props) => {
       <p className="text-center">{item.itemName}</p>
       <p className="text-center">{item.itemMemo}</p>
       {/* <p>{item.itemPostId}</p> */}
-      <p className="text-center">
-        <a href={item.itemUrl}>詳しい店情報</a>
-      </p>
-      <div className="text-center w-2/3">
-        <img src={item.itemImageUrl} alt="" />
+      <Button buttonText="詳しい店情報" buttonLink={item.itemUrl} />
+      <div className="">
+        <img
+          src={item.itemImageUrl}
+          className="text-center w-72 h-72 object-cover m-auto"
+          alt=""
+        />
       </div>
       <p>added by {item.itemUserName}</p>
     </div>
