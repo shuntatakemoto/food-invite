@@ -6,6 +6,7 @@ import { selectUser } from "../../features/userSlice";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { useHistory } from "react-router-dom";
 import { selectPost } from "../../features/postSlice";
+import TextField from "@material-ui/core/TextField";
 
 interface PROPS {
   postId: string;
@@ -25,10 +26,10 @@ const AddList: React.FC<PROPS> = (props) => {
   const history = useHistory();
   const storePostId = useSelector(selectPost);
 
-  console.log("テスト1です");
-  console.log(storePostId.postId);
-  console.log("テスト2です");
-  console.log(storePostId);
+  // console.log("テスト1です");
+  // console.log(storePostId.postId);
+  // console.log("テスト2です");
+  // console.log(storePostId);
 
   const onChangeImageHandler = (e: any) => {
     if (e.target.files![0]) {
@@ -105,21 +106,18 @@ const AddList: React.FC<PROPS> = (props) => {
   };
   return (
     <>
-      <form onSubmit={addList} className="pl-5 flex-1">
+      <form onSubmit={addList} className="px-10 flex-1">
         <div>
-          <div>
-            <label>
-              店名
-              <input
-                className="mt-5 ml-10"
-                placeholder="店名を入力"
-                type="text"
-                autoFocus
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </label>
-          </div>
+          <TextField
+            label="店名"
+            placeholder="店名を入力"
+            multiline
+            fullWidth
+            margin="normal"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="mt-5"
+          />
 
           <div className="mt-5">
             <label htmlFor="addPhoto">
@@ -144,33 +142,27 @@ const AddList: React.FC<PROPS> = (props) => {
             </div>
           </div>
 
-          <div>
-            <label>
-              メモ
-              <input
-                className="mt-5 ml-10"
-                placeholder="一言メモを入力"
-                type="text"
-                autoFocus
-                value={memo}
-                onChange={(e) => setMemo(e.target.value)}
-              />
-            </label>
-          </div>
+          <TextField
+            label="メモ"
+            placeholder="メモを入力"
+            multiline
+            fullWidth
+            margin="normal"
+            value={memo}
+            onChange={(e) => setMemo(e.target.value)}
+            className="mt-5"
+          />
 
-          <div>
-            <label>
-              URL
-              <input
-                className="mt-5 ml-10"
-                placeholder="URLを入力"
-                type="text"
-                autoFocus
-                value={restaurantUrl}
-                onChange={(e) => setRestaurantUrl(e.target.value)}
-              />
-            </label>
-          </div>
+          <TextField
+            label="URL"
+            placeholder="店情報のあるURLを入力"
+            multiline
+            fullWidth
+            margin="normal"
+            value={restaurantUrl}
+            onChange={(e) => setRestaurantUrl(e.target.value)}
+            className="mt-5"
+          />
         </div>
         <div className="mt-5">
           <button

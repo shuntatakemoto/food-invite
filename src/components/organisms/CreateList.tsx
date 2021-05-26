@@ -6,6 +6,7 @@ import { selectUser } from "../../features/userSlice";
 import { useHistory } from "react-router-dom";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
+import TextField from "@material-ui/core/TextField";
 
 const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
@@ -31,21 +32,17 @@ const CreateList: React.FC = () => {
     <>
       <h3>リストを作成</h3>
       <form onSubmit={createList} className="pl-5 flex-1">
-        <div className="mb-5">
-          <div>
-            <label>
-              リスト名を入力
-              <input
-                className="mt-5 ml-10"
-                placeholder="行きたい飲食店リスト"
-                type="text"
-                autoFocus
-                value={listName}
-                onChange={(e) => setListName(e.target.value)}
-              />
-            </label>
-          </div>
-        </div>
+        <TextField
+          label="リスト名"
+          placeholder="行きたい飲食店リスト"
+          multiline
+          fullWidth
+          margin="normal"
+          value={listName}
+          className="pr-5 mb-5"
+          onChange={(e) => setListName(e.target.value)}
+        />
+
         <div className="mb-5">
           <p className="pb-5">絵文字を設定</p>
           <Picker
