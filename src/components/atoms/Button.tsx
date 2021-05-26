@@ -9,12 +9,12 @@ interface PROPS {
 const Button: React.FC<PROPS> = (props) => {
   return (
     <div className="text-center my-5 ">
-      <Link
-        to={props.buttonLink}
+      <a
+        href={props.buttonLink}
         className="bg-black text-white font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white "
       >
         <span className="text-lg font-light">{props.buttonText}</span>
-      </Link>
+      </a>
     </div>
   );
 };
