@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectItem } from "../../features/itemSlice";
 import Button from "../atoms/Button";
+import UrlButton from "../atoms/UrlButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../../firebase";
 import { useHistory } from "react-router-dom";
@@ -45,7 +46,7 @@ const MyItem: React.FC<PROPS> = (props) => {
       <p className="text-center">{item.itemName}</p>
       <p className="text-center">{item.itemMemo}</p>
       {/* <p>{item.itemPostId}</p> */}
-      <Button buttonText="詳しい店情報" buttonLink={item.itemUrl} />
+      <UrlButton buttonText="詳しい店情報" buttonLink={item.itemUrl} />
       <div className="">
         <img
           src={item.itemImageUrl}
