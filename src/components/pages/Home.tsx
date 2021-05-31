@@ -20,9 +20,16 @@ import WholeMyList from "../organisms/WholeMyList";
 import Detail from "../templates/Detail";
 import Bookmark from "../templates/Bookmark";
 import MyItem from "../templates/MyItem";
+import {
+  getPostId,
+  getListName,
+  getEmojiName,
+  selectPost,
+} from "../../features/postSlice";
 
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
+  const post = useSelector(selectPost);
   // const uid = user.uid;
   return (
     <div className="bg-main-color flex min-h-screen flex-col ">
@@ -36,6 +43,10 @@ const Home: React.FC = () => {
       <Route path={"/detail"} component={Detail} />
       <Route path={"/bookmark"} component={Bookmark} />
       <Route path={"/my-item"} component={MyItem} />
+      <Route exact path={"/" + user.uid} component={MyPage} />
+      {/* <Route path={"/" + user.uid + "/" + post.postId} component={Bookmark} /> */}
+      {console.log(user.uid)}
+      {/* {console.log(post.postId)} */}
       <Footer />
     </div>
   );
