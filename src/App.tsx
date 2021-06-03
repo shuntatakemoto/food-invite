@@ -28,6 +28,8 @@ const App: React.FC = () => {
     };
   }, [dispatch]);
 
+  // return <>{user.uid ? <Home /> : <Auth />}</>;
+  //ここは<Home/>にしてHomeコンポーネントでuidがあるかどうかを条件分岐させる-hooksでする
   return <>{user.uid ? <Home /> : <Auth />}</>;
 };
 

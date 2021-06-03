@@ -30,12 +30,10 @@ import {
 const Home: React.FC = () => {
   const user = useSelector(selectUser);
   const post = useSelector(selectPost);
-  // const uid = user.uid;
+
   return (
     <div className="bg-main-color flex min-h-screen flex-col ">
       <Header />
-      {/* ユーザー毎にurlを変更しないとシェアできないのでは？ */}
-      {/* {user.uid && <Route exact path={"/user/:id"} component={MyPage} />} */}
       {user.uid && <Route exact path={"/"} component={MyPage} />}
       <Route path={"/create-list"} component={CreateList} />
       <Route path={"/my-list"} component={WholeMyList} />
@@ -47,6 +45,7 @@ const Home: React.FC = () => {
       {/* <Route path={"/" + user.uid + "/" + post.postId} component={Bookmark} /> */}
       {console.log(user.uid)}
       {/* {console.log(post.postId)} */}
+      <Route path={"/lists/:id"} component={Detail} />
       <Footer />
     </div>
   );

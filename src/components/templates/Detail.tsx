@@ -8,7 +8,7 @@ import { Emoji } from "emoji-mart";
 import Button from "../atoms/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../../firebase";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -23,10 +23,13 @@ const Detail: React.FC<PROPS> = (props) => {
   const storeEmojiName = useSelector(selectPost);
   const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
   const history = useHistory();
+  const params = useParams() as any;
+  const id = params.id as string;
+  console.log(params);
 
   const deleteList = () => {
     db.collection(user.uid)
-      .doc(post.postId)
+      .doc(id)
       .delete()
       .then(() => {
         console.log("Document successfully deleted!");

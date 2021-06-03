@@ -30,7 +30,7 @@ const WholePost: React.FC<PROPS> = (props) => {
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4 h-48">
       <Link
-        to="/detail"
+        to={`/lists/${props.postId}`}
         onClick={() => {
           dispatch(getPostId(props.postId));
           dispatch(getListName(props.listname));
