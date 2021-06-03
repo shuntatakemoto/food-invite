@@ -4,10 +4,13 @@ import Post from "../molecules/Post";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import { selectPost } from "../../features/postSlice";
+import { useHistory, useParams } from "react-router-dom";
 
 const MyList: React.FC = () => {
   const user = useSelector(selectUser);
   const storePostId = useSelector(selectPost);
+  const params = useParams() as any;
+  const id = params.id as string;
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -27,7 +30,7 @@ const MyList: React.FC = () => {
   useEffect(() => {
     const unSub = db
       .collection(user.uid)
-      .doc(storePostId.postId)
+      .doc(id)
       .collection("restaurant")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
