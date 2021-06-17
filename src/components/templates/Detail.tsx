@@ -63,6 +63,7 @@ const Detail: React.FC<PROPS> = (props) => {
           buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
           buttonLink="/add-List"
         />
+        <Button buttonText="&nbsp;リストをシェアする&nbsp;" buttonLink="" />
         {/* <Button buttonText="このリストを保存する" buttonLink="./add-List" /> */}
         {/* <Button buttonText="このリストを削除する" buttonLink="./add-List" /> */}
         <DeleteIcon fontSize="large" onClick={deleteList} />
