@@ -40,7 +40,7 @@ const Home: React.FC = () => {
       <Route path={"/add-list"} component={AddList} />
       <Route path={"/detail"} component={Detail} />
       <Route path={"/bookmark"} component={Bookmark} />
-      <Route path={"/my-item"} component={MyItem} />
+      <Route path={"/restaurants/:itemId"} component={MyItem} />
       <Route exact path={"/" + user.uid} component={MyPage} />
       {/* <Route path={"/" + user.uid + "/" + post.postId} component={Bookmark} /> */}
       {console.log(user.uid)}

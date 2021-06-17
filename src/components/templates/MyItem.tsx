@@ -35,7 +35,7 @@ const MyItem: React.FC<PROPS> = (props) => {
       .catch((error) => {
         console.error("Error removing document: ", error);
       });
-    history.push("/detail");
+    history.push(`/lists/${post.postId}`);
   };
 
   return (

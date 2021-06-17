@@ -102,7 +102,7 @@ const AddList: React.FC<PROPS> = (props) => {
     setName("");
     setMemo("");
     setRestaurantUrl("");
-    history.push("/detail");
+    history.push(`/lists/${storePostId.postId}`);
   };
   return (
     <>

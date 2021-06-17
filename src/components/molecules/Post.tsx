@@ -14,6 +14,7 @@ import {
   getUserName,
   getImageUrl,
 } from "../../features/itemSlice";
+import { useHistory, useParams } from "react-router-dom";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -30,12 +31,14 @@ interface PROPS {
 const Post: React.FC<PROPS> = (props) => {
   const post = useSelector(selectItem);
   const dispatch = useDispatch();
+  const params = useParams() as any;
+  const ItemId = params.id as string;
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4">
       <p>Post.tsx</p>
       <Link
-        to="/my-item"
+        to={`/restaurants/${props.postId}`}
         onClick={() => {
           dispatch(getName(props.name));
           dispatch(getPostId(props.postId));
