@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MyList from "../organisms/MyList";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -19,13 +19,37 @@ interface PROPS {
 }
 const Detail: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
-  const post = useSelector(selectPost);
+  // const post = useSelector(selectPost);
   const storeEmojiName = useSelector(selectPost);
   const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
   const history = useHistory();
   const params = useParams() as any;
   const id = params.id as string;
   console.log(params);
+
+  // const [posts, setPosts] = useState([
+  //   {
+  //     id: "",
+  //     // avatar: "",
+  //     listname: "",
+  //     // username: "",
+  //     timestamp: null,
+  //     emojiname: "",
+  //   },
+  // ]);
+  const [post, setPost] = useState<any>("");
+
+  useEffect(() => {
+    const unSub = db
+      .collection(user.uid)
+      .doc(id)
+      .get()
+      .then((doc) => setPost(doc.data()));
+
+    // return () => {
+    //   unSub();
+    // };
+  }, []);
 
   const deleteList = () => {
     db.collection(user.uid)
@@ -55,10 +79,9 @@ const Detail: React.FC<PROPS> = (props) => {
       <div>
         <div className="text-center py-12">
           <Emoji emoji={newEmojiName} size={64} set="twitter" />
+          {/* <Emoji emoji={post.emojiname} size={64} set="twitter" /> */}
         </div>
-        <h3 className="text-3xl text-center mb-10">
-          {storeEmojiName.listName}
-        </h3>
+        <h3 className="text-3xl text-center mb-10">{post.listname}</h3>
         <Button
           buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
           buttonLink="/add-List"
@@ -69,6 +92,8 @@ const Detail: React.FC<PROPS> = (props) => {
         <DeleteIcon fontSize="large" onClick={deleteList} />
       </div>
       <MyList />
+      {/* {console.log(listName.listname)} */}
+      {console.log(post.emojiname)}
     </div>
   );
 };
