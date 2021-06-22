@@ -21,7 +21,7 @@ const Detail: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   // const post = useSelector(selectPost);
   const storeEmojiName = useSelector(selectPost);
-  const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
+  // const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
   const history = useHistory();
   const params = useParams() as any;
   const id = params.id as string;
@@ -63,6 +63,7 @@ const Detail: React.FC<PROPS> = (props) => {
       });
     history.push("/");
   };
+
   return (
     <div className="flex-1">
       <p>Detail.tsx</p>
@@ -78,8 +79,10 @@ const Detail: React.FC<PROPS> = (props) => {
       </div>
       <div>
         <div className="text-center py-12">
-          <Emoji emoji={newEmojiName} size={64} set="twitter" />
           {/* <Emoji emoji={post.emojiname} size={64} set="twitter" /> */}
+          {post.emojiname && (
+            <Emoji emoji={post.emojiname} size={64} set="twitter" />
+          )}
         </div>
         <h3 className="text-3xl text-center mb-10">{post.listname}</h3>
         <Button
@@ -92,8 +95,6 @@ const Detail: React.FC<PROPS> = (props) => {
         <DeleteIcon fontSize="large" onClick={deleteList} />
       </div>
       <MyList />
-      {/* {console.log(listName.listname)} */}
-      {console.log(post.emojiname)}
     </div>
   );
 };

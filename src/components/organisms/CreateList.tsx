@@ -13,7 +13,7 @@ const CreateList: React.FC = () => {
   const [listName, setListName] = useState("");
   const [emojiName, setEmojiName] = useState("");
   const history = useHistory();
-
+  const newEmojiName = emojiName.replace(/\"/g, "");
   const createList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     db.collection(user.uid).add({
@@ -21,7 +21,7 @@ const CreateList: React.FC = () => {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       username: user.displayName,
       listname: listName,
-      emojiname: emojiName,
+      emojiname: newEmojiName,
     });
     setListName("");
     setEmojiName("");
@@ -49,7 +49,7 @@ const CreateList: React.FC = () => {
             set="twitter"
             onSelect={(emoji) => setEmojiName(JSON.stringify(emoji.id))}
           />
-          {console.log(emojiName)}
+          {/* {console.log(emojiName.replace(/\"/g, ""))} */}
         </div>
         <div className="mb-5">
           <button

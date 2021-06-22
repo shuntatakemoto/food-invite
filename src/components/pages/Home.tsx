@@ -38,10 +38,10 @@ const Home: React.FC = () => {
       <Route path={"/create-list"} component={CreateList} />
       <Route path={"/my-list"} component={WholeMyList} />
       <Route path={"/add-list"} component={AddList} />
-      <Route path={"/detail"} component={Detail} />
+      {/* <Route path={"/detail"} component={Detail} /> */}
       <Route path={"/bookmark"} component={Bookmark} />
       <Route path={"/restaurants/:itemId"} component={MyItem} />
-      <Route exact path={"/" + user.uid} component={MyPage} />
+      {/* <Route exact path={"/" + user.uid} component={MyPage} /> */}
       {/* <Route path={"/" + user.uid + "/" + post.postId} component={Bookmark} /> */}
       {console.log(user.uid)}
       {/* {console.log(post.postId)} */}
