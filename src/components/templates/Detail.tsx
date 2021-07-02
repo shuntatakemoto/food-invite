@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MyList from "../organisms/MyList";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectPost } from "../../features/postSlice";
 import { selectUser } from "../../features/userSlice";
@@ -19,13 +18,12 @@ interface PROPS {
 }
 const Detail: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
-  // const post = useSelector(selectPost);
   const storeEmojiName = useSelector(selectPost);
-  // const newEmojiName = storeEmojiName.emojiName.replace(/\"/g, "");
   const history = useHistory();
   const params = useParams() as any;
+  const uid = params.uid as string;
   const id = params.id as string;
-  console.log(params);
+  const addLink = `/${user.uid}/add-list`;
 
   // const [posts, setPosts] = useState([
   //   {
@@ -41,7 +39,8 @@ const Detail: React.FC<PROPS> = (props) => {
 
   useEffect(() => {
     const unSub = db
-      .collection(user.uid)
+      // .collection(user.uid)
+      .collection(uid)
       .doc(id)
       .get()
       .then((doc) => setPost(doc.data()));
@@ -52,7 +51,7 @@ const Detail: React.FC<PROPS> = (props) => {
   }, []);
 
   const deleteList = () => {
-    db.collection(user.uid)
+    db.collection(uid)
       .doc(id)
       .delete()
       .then(() => {
@@ -69,13 +68,16 @@ const Detail: React.FC<PROPS> = (props) => {
       <p>Detail.tsx</p>
       <div className="flex">
         <div className="w-8 mr-5">
-          <img
-            src={user.photoUrl.replace("normal", "200x200")}
-            alt="profile image"
-            className="w-40"
-          />
+          {post.avatar && (
+            <img
+              src={post.avatar.replace("normal", "200x200")}
+              alt="profile image"
+              className="w-40"
+            />
+          )}
         </div>
-        <p>Created by {user.displayName}</p>
+        {/* <p>Created by {user.displayName}</p> */}
+        <p>Created by {post.username}</p>
       </div>
       <div>
         <div className="text-center py-12">
@@ -85,14 +87,19 @@ const Detail: React.FC<PROPS> = (props) => {
           )}
         </div>
         <h3 className="text-3xl text-center mb-10">{post.listname}</h3>
-        <Button
-          buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
-          buttonLink="/add-List"
-        />
-        <Button buttonText="&nbsp;リストをシェアする&nbsp;" buttonLink="" />
+        {user.uid && (
+          <Button
+            buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
+            // buttonLink="/:uid/add-List"
+            buttonLink={addLink}
+          />
+        )}
+        {user.uid && (
+          <Button buttonText="&nbsp;リストをシェアする&nbsp;" buttonLink="" />
+        )}
         {/* <Button buttonText="このリストを保存する" buttonLink="./add-List" /> */}
         {/* <Button buttonText="このリストを削除する" buttonLink="./add-List" /> */}
-        <DeleteIcon fontSize="large" onClick={deleteList} />
+        {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
       <MyList />
     </div>

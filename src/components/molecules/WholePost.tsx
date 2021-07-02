@@ -11,6 +11,7 @@ import {
   selectPost,
 } from "../../features/postSlice";
 import { Emoji } from "emoji-mart";
+import { useHistory, useParams } from "react-router-dom";
 interface PROPS {
   postId: string;
   // avatar: string;
@@ -26,11 +27,13 @@ const WholePost: React.FC<PROPS> = (props) => {
   const emojiName = props.emojiname;
   //ダブルクオテーションを削除している
   const newEmojiName = emojiName.replace(/\"/g, "");
+  const params = useParams() as any;
+  const uid = params.uid as string;
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4 h-48">
       <Link
-        to={`/lists/${props.postId}`}
+        to={`${uid}/${props.postId}`}
         onClick={() => {
           dispatch(getPostId(props.postId));
           dispatch(getListName(props.listname));
@@ -52,6 +55,7 @@ const WholePost: React.FC<PROPS> = (props) => {
           {/* <p>{props.postId}</p> */}
         </div>
       </Link>
+      {console.log(props.postId)}
     </div>
   );
 };

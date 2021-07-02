@@ -4,7 +4,13 @@ import firebase from "firebase/app";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+} from "react-router-dom";
 import {
   selectItem,
   getName,
@@ -32,13 +38,19 @@ const Post: React.FC<PROPS> = (props) => {
   const post = useSelector(selectItem);
   const dispatch = useDispatch();
   const params = useParams() as any;
-  const ItemId = params.id as string;
+  const id = params.id as string;
+  const itemId = params.itemId as string;
+  const user = useSelector(selectUser);
+  const match = useRouteMatch();
 
   return (
     <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4">
       <p>Post.tsx</p>
       <Link
-        to={`/restaurants/${props.postId}`}
+        // to={`/restaurants/${props.postId}`}
+        // to={`${id}/restaurants/${itemId}`}
+        // to={`./restaurants/${props.postId}`}
+        to={`${match.url}/restaurants/${props.postId}`}
         onClick={() => {
           dispatch(getName(props.name));
           dispatch(getPostId(props.postId));

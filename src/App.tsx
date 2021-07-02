@@ -30,7 +30,8 @@ const App: React.FC = () => {
 
   // return <>{user.uid ? <Home /> : <Auth />}</>;
   //ここは<Home/>にしてHomeコンポーネントでuidがあるかどうかを条件分岐させる-hooksでする
-  return <>{user.uid ? <Home /> : <Auth />}</>;
+  // return <>{user.uid ? <Home /> : <Auth />}</>;
+  return <>{<Home />}</>;
 };
 
 export default App;

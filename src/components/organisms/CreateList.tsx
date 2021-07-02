@@ -3,10 +3,10 @@ import firebase from "firebase/app";
 import { storage, db, auth } from "../../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
-import { useHistory } from "react-router-dom";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 import TextField from "@material-ui/core/TextField";
+import { useHistory, useParams } from "react-router-dom";
 
 const CreateList: React.FC = () => {
   const user = useSelector(selectUser);
@@ -14,14 +14,20 @@ const CreateList: React.FC = () => {
   const [emojiName, setEmojiName] = useState("");
   const history = useHistory();
   const newEmojiName = emojiName.replace(/\"/g, "");
+  const params = useParams() as any;
+  const uid = params.uid as string;
+
   const createList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    db.collection(user.uid).add({
+    // db.collection(user.uid).add({
+    // db.collection("lists").add({
+    db.collection(uid).add({
       avatar: user.photoUrl,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       username: user.displayName,
       listname: listName,
       emojiname: newEmojiName,
+      userid: user.uid,
     });
     setListName("");
     setEmojiName("");

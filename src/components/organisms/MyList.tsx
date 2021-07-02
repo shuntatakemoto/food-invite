@@ -11,6 +11,7 @@ const MyList: React.FC = () => {
   const storePostId = useSelector(selectPost);
   const params = useParams() as any;
   const id = params.id as string;
+  const uid = params.uid as string;
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -29,7 +30,8 @@ const MyList: React.FC = () => {
 
   useEffect(() => {
     const unSub = db
-      .collection(user.uid)
+      // .collection(user.uid)
+      .collection(uid)
       .doc(id)
       .collection("restaurant")
       .orderBy("timestamp", "desc")
