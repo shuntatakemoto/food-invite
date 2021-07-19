@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import { Share } from "../molecules/Share";
+// import { useParams, useHistory, useLocation } from "react-router-dom";
 interface PROPS {
   show: boolean;
   // setShow: boolean;
@@ -8,6 +9,7 @@ interface PROPS {
 }
 
 const Modal: React.FC<PROPS> = ({ show, setShow, content }) => {
+  // const location = useLocation();
   if (show) {
     return (
       <div
@@ -22,6 +24,10 @@ const Modal: React.FC<PROPS> = ({ show, setShow, content }) => {
         >
           <p>これがモーダルウィンドウです。</p>
           <p>{content}</p>
+          {/* <Share text="share-test" url={location.pathname} /> */}
+          <Share text="share-test" url={window.location.href} />
+          {/* {console.log(location)} */}
+          {/* {console.log(window.location.href)} */}
           <button onClick={() => setShow(false)}>close</button>
         </div>
       </div>
