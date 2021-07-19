@@ -8,15 +8,16 @@ import Button from "../atoms/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../../firebase";
 import { useHistory, useParams } from "react-router-dom";
-interface PROPS {
-  postId: string;
-  avatar: string;
-  listname: string;
-  username: string;
-  timestamp: any;
-  emojiname: string;
-}
-const Detail: React.FC<PROPS> = (props) => {
+import Modal from "../organisms/Modal";
+// interface PROPS {
+//   userid: string;
+//   avatar: string;
+//   listname: string;
+//   username: string;
+//   timestamp: any;
+//   emojiname: string| undefined;
+// }
+const Detail: React.FC = (props) => {
   const user = useSelector(selectUser);
   const storeEmojiName = useSelector(selectPost);
   const history = useHistory();
@@ -25,17 +26,19 @@ const Detail: React.FC<PROPS> = (props) => {
   const id = params.id as string;
   const addLink = `/${user.uid}/add-list`;
 
-  // const [posts, setPosts] = useState([
+  // const [post, setPost] = useState([
   //   {
-  //     id: "",
-  //     // avatar: "",
+  //     userid: "",
+  //     avatar: "",
   //     listname: "",
-  //     // username: "",
+  //     username: "",
   //     timestamp: null,
   //     emojiname: "",
   //   },
   // ]);
+
   const [post, setPost] = useState<any>("");
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const unSub = db
@@ -76,12 +79,10 @@ const Detail: React.FC<PROPS> = (props) => {
             />
           )}
         </div>
-        {/* <p>Created by {user.displayName}</p> */}
         <p>Created by {post.username}</p>
       </div>
       <div>
         <div className="text-center py-12">
-          {/* <Emoji emoji={post.emojiname} size={64} set="twitter" /> */}
           {post.emojiname && (
             <Emoji emoji={post.emojiname} size={64} set="twitter" />
           )}
@@ -90,18 +91,31 @@ const Detail: React.FC<PROPS> = (props) => {
         {user.uid && (
           <Button
             buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
-            // buttonLink="/:uid/add-List"
             buttonLink={addLink}
           />
         )}
+        {/* {user.uid && (
+          <div onClick={() => setShow(true)}>
+            <Button buttonText="&nbsp;リストをシェアする&nbsp;" buttonLink="" />
+          </div>
+        )} */}
         {user.uid && (
-          <Button buttonText="&nbsp;リストをシェアする&nbsp;" buttonLink="" />
+          <button onClick={() => setShow(true)} className="">
+            &nbsp;リストをシェアする&nbsp;
+          </button>
         )}
+
         {/* <Button buttonText="このリストを保存する" buttonLink="./add-List" /> */}
         {/* <Button buttonText="このリストを削除する" buttonLink="./add-List" /> */}
         {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
+      <Modal
+        show={show}
+        setShow={setShow}
+        content="Appから内容を変更できます"
+      />
       <MyList />
+      {console.log(post)}
     </div>
   );
 };
