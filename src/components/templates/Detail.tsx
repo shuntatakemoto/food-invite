@@ -88,21 +88,16 @@ const Detail: React.FC = (props) => {
           )}
         </div>
         <h3 className="text-3xl text-center mb-10">{post.listname}</h3>
+        {user.uid && <Button buttonText="店を追加する" buttonLink={addLink} />}
         {user.uid && (
-          <Button
-            buttonText="&emsp;&emsp;店を追加する&emsp;&emsp;"
-            buttonLink={addLink}
-          />
-        )}
-        {/* {user.uid && (
-          <div onClick={() => setShow(true)}>
-            <Button buttonText="&nbsp;リストをシェアする&nbsp;" buttonLink="" />
+          <div className="text-center ">
+            <button
+              onClick={() => setShow(true)}
+              className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white "
+            >
+              リストをシェアする
+            </button>
           </div>
-        )} */}
-        {user.uid && (
-          <button onClick={() => setShow(true)} className="">
-            &nbsp;リストをシェアする&nbsp;
-          </button>
         )}
 
         {/* <Button buttonText="このリストを保存する" buttonLink="./add-List" /> */}
