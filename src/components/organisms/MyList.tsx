@@ -60,7 +60,7 @@ const MyList: React.FC = () => {
   return (
     <div>
       <p>MyList.tsx</p>
-      <div className="flex flex-wrap">
+      <div className="grid grid-cols-2 xl:grid-cols-4 text-center">
         {posts[0]?.id && (
           <>
             {posts.map((post) => (

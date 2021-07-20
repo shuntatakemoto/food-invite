@@ -44,7 +44,7 @@ const Post: React.FC<PROPS> = (props) => {
   const match = useRouteMatch();
 
   return (
-    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4">
+    <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 m-4 xl:m-6">
       <p>Post.tsx</p>
       <Link
         // to={`/restaurants/${props.postId}`}

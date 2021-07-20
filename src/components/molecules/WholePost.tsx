@@ -31,7 +31,7 @@ const WholePost: React.FC<PROPS> = (props) => {
   const uid = params.uid as string;
 
   return (
-    <div className="bg-gray-200 w-2/5 rounded-lg shadow-xl overflow-hidden m-4 h-48">
+    <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 m-4 xl:m-6">
       <Link
         to={`${uid}/${props.postId}`}
         onClick={() => {
