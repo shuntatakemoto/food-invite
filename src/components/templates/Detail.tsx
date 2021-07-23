@@ -101,11 +101,7 @@ const Detail: React.FC = (props) => {
         )}
         {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
-      <Modal
-        show={show}
-        setShow={setShow}
-        content="Appから内容を変更できます"
-      />
+      <Modal show={show} setShow={setShow} content={post.listname} />
       <MyList />
       {console.log(post)}
     </div>

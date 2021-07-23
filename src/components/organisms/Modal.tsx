@@ -19,9 +19,9 @@ const Modal: React.FC<PROPS> = ({ show, setShow, content }) => {
           onClick={(e) => e.stopPropagation()}
           className="z-10 w-3/4 p-4 bg-white"
         >
-          <p>これがモーダルウィンドウです。</p>
+          <p>このリストをシェア</p>
           <p>{content}</p>
-          <Share text="share-test" url={window.location.href} />
+          <Share text={content} url={window.location.href} />
           <button onClick={() => setShow(false)}>close</button>
         </div>
       </div>
