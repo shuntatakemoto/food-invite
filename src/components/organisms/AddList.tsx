@@ -27,11 +27,6 @@ const AddList: React.FC<PROPS> = (props) => {
   const params = useParams() as any;
   const uid = params.uid as string;
 
-  // console.log("テスト1です");
-  // console.log(storePostId.postId);
-  // console.log("テスト2です");
-  // console.log(storePostId);
-
   const onChangeImageHandler = (e: any) => {
     if (e.target.files![0]) {
       setUploadImage(e.target.files![0]);
@@ -41,12 +36,6 @@ const AddList: React.FC<PROPS> = (props) => {
       e.target.value = "";
     }
   };
-
-  // const processImage = (e: any) => {
-  //   const imageFile = e.target.files[0];
-  //   const imageUrl = URL.createObjectURL(imageFile);
-  //   setFileUrl(imageUrl);
-  // };
 
   const addList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -89,7 +78,6 @@ const AddList: React.FC<PROPS> = (props) => {
         }
       );
     } else {
-      // db.collection(user.uid)
       db.collection(uid).doc(storePostId.postId).collection("restaurant").add({
         name: name,
         memo: memo,

@@ -99,9 +99,6 @@ const Detail: React.FC = (props) => {
             </button>
           </div>
         )}
-
-        {/* <Button buttonText="このリストを保存する" buttonLink="./add-List" /> */}
-        {/* <Button buttonText="このリストを削除する" buttonLink="./add-List" /> */}
         {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
       <Modal

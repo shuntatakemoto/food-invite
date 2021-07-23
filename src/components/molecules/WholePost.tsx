@@ -42,17 +42,10 @@ const WholePost: React.FC<PROPS> = (props) => {
       >
         <div className="h-2/3 text-center pt-2">
           <p>WholePost.tsx</p>
-          {/* <img
-            src={props.avatar}
-            alt=""
-            className="w-full rounded-lg rounded-b-none"
-          /> */}
-          {/* {console.log(props.emojiname)} */}
           <Emoji emoji={newEmojiName} size={64} set="twitter" />
         </div>
         <div className="text-center h-1/3">
           <p className="text-base">{props.listname}</p>
-          {/* <p>{props.postId}</p> */}
         </div>
       </Link>
       {console.log(props.postId)}

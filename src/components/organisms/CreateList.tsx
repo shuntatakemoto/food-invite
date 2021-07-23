@@ -19,8 +19,6 @@ const CreateList: React.FC = () => {
 
   const createList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // db.collection(user.uid).add({
-    // db.collection("lists").add({
     db.collection(uid).add({
       avatar: user.photoUrl,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -55,7 +53,6 @@ const CreateList: React.FC = () => {
             set="twitter"
             onSelect={(emoji) => setEmojiName(JSON.stringify(emoji.id))}
           />
-          {/* {console.log(emojiName.replace(/\"/g, ""))} */}
         </div>
         <div className="mb-5">
           <button
