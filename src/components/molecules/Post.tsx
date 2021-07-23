@@ -48,16 +48,16 @@ const Post: React.FC<PROPS> = (props) => {
         }}
       >
         <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 m-4 xl:m-6">
-          <p>Post.tsx</p>
+          {/* <p>Post.tsx</p> */}
 
           <div className="">
             <img
-              src={props.avatar}
+              src={props.imageurl}
               alt=""
-              className="w-full rounded-lg rounded-b-none"
+              className="h-36 w-full object-cover"
             />
           </div>
-          <div className="p-4 text-center">
+          <div className="p-4 text-center h-12">
             <p>{props.name}</p>
           </div>
         </div>
