@@ -44,7 +44,6 @@ const WholeMyList: React.FC = () => {
 
   return (
     <div>
-      <p>WholeMyList.tsx</p>
       <p className="text-center text-2xl py-5">My list</p>
       <div className="grid grid-cols-2 xl:grid-cols-4 text-center">
         {posts[0]?.id && (

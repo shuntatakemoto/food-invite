@@ -58,8 +58,6 @@ const MyItem: React.FC<PROPS> = (props) => {
 
   return (
     <div className="flex-1">
-      <p>MyItem.tsx</p>
-
       {user.uid && (
         <div>
           <p>この店を削除する</p>

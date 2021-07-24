@@ -73,8 +73,7 @@ const Detail: React.FC = (props) => {
     window.location.href;
 
   return (
-    <div className="flex-1">
-      <p>Detail.tsx</p>
+    <div className="pt-5 flex-1">
       <div className="flex">
         <div className="w-8 mr-5">
           {post.avatar && (

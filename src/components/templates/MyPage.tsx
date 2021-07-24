@@ -8,8 +8,7 @@ const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
   console.log(user.twitterUid);
   return (
-    <div className="flex-1">
-      <p>MyPage.tsx</p>
+    <div className="mt-5 flex-1">
       <img
         src={user.photoUrl.replace("normal", "200x200")}
         alt="profile image"
