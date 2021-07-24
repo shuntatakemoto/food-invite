@@ -6,6 +6,7 @@ import WholeMyList from "../organisms/WholeMyList";
 
 const MyPage: React.FC = () => {
   const user = useSelector(selectUser);
+  console.log(user.twitterUid);
   return (
     <div className="flex-1">
       <p>MyPage.tsx</p>

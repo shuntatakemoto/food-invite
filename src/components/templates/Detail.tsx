@@ -25,6 +25,11 @@ const Detail: React.FC = (props) => {
   const uid = params.uid as string;
   const id = params.id as string;
   const addLink = `/${user.uid}/add-list`;
+  const DmLink =
+    "https://twitter.com/messages/compose?recipient_id=" +
+    user.twitterUid +
+    "&text=(店名を入力)に一緒に行きたいです for Food Invite\n " +
+    window.location.href;
 
   // const [post, setPost] = useState([
   //   {
@@ -99,15 +104,18 @@ const Detail: React.FC = (props) => {
               リストをシェアする
             </button>
           )}
-          {/* 自分のリストには一緒に行きたいボタンは必要ないので条件分岐でユーザーIDが自分じゃない時に表示させる */}
-          <button
-            // onClick={() => setShow(true)}
-            className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-5"
-          >
-            一緒に行きたい
-          </button>
         </div>
-
+        <div className="text-center ">
+          {/* 自分のリストには一緒に行きたいボタンは必要ないので条件分岐でユーザーIDが自分じゃない時に表示させる */}
+          <a href={DmLink}>
+            <button
+              // onClick={() => setShow(true)}
+              className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-5"
+            >
+              一緒に行きたい
+            </button>
+          </a>
+        </div>
         {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
       <Modal show={show} setShow={setShow} content={post.listname} />

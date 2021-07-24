@@ -17,6 +17,7 @@ const App: React.FC = () => {
             uid: authUser.uid,
             photoUrl: authUser.photoURL,
             displayName: authUser.displayName,
+            twitterUid: authUser.providerData[0]?.uid,
           })
         );
       } else {

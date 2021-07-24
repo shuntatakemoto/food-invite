@@ -4,14 +4,14 @@ import { RootState } from "../app/store";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    user: { uid: "", photoUrl: "", displayName: "" },
+    user: { uid: "", photoUrl: "", displayName: "", twitterUid: "" },
   },
   reducers: {
     login: (state, action) => {
       state.user = action.payload;
     },
     logout: (state) => {
-      state.user = { uid: "", photoUrl: "", displayName: "" };
+      state.user = { uid: "", photoUrl: "", displayName: "", twitterUid: "" };
     },
   },
 });

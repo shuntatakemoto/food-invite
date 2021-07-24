@@ -26,6 +26,7 @@ const CreateList: React.FC = () => {
       listname: listName,
       emojiname: newEmojiName,
       userid: user.uid,
+      twitterid: user.twitterUid,
     });
     setListName("");
     setEmojiName("");
