@@ -59,8 +59,13 @@ const MyItem: React.FC<PROPS> = (props) => {
   return (
     <div className="flex-1">
       <p>MyItem.tsx</p>
-      <p>この店を削除する</p>
-      {user.uid && <DeleteIcon fontSize="large" onClick={deleteItem} />}
+
+      {user.uid && (
+        <div>
+          <p>この店を削除する</p>
+          <DeleteIcon fontSize="large" onClick={deleteItem} />
+        </div>
+      )}
       <p className="text-center">{posts.name}</p>
       <p className="text-center">{posts.memo}</p>
       <UrlButton buttonText="詳しい店情報" buttonLink={posts.url} />
