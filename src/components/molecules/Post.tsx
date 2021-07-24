@@ -57,7 +57,7 @@ const Post: React.FC<PROPS> = (props) => {
               className="h-36 w-full object-cover"
             />
           </div>
-          <div className="p-4 text-center h-12">
+          <div className="grid justify-items-center items-center p-1 xl:p-4 text-center h-12">
             <p>{props.name}</p>
           </div>
         </div>
