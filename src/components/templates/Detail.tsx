@@ -25,11 +25,6 @@ const Detail: React.FC = (props) => {
   const uid = params.uid as string;
   const id = params.id as string;
   const addLink = `/${user.uid}/add-list`;
-  const DmLink =
-    "https://twitter.com/messages/compose?recipient_id=" +
-    user.twitterUid +
-    "&text=(店名を入力)に一緒に行きたいです for Food Invite\n " +
-    window.location.href;
 
   // const [post, setPost] = useState([
   //   {
@@ -70,6 +65,12 @@ const Detail: React.FC = (props) => {
       });
     history.push("/");
   };
+
+  const DmLink =
+    "https://twitter.com/messages/compose?recipient_id=" +
+    post.twitterid +
+    "&text=(店名を入力)に一緒に行きたいです for Food Invite\n " +
+    window.location.href;
 
   return (
     <div className="flex-1">
