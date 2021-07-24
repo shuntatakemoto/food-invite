@@ -47,17 +47,17 @@ const Post: React.FC<PROPS> = (props) => {
           dispatch(getImageUrl(props.imageurl));
         }}
       >
-        <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 m-4 xl:m-6">
+        <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 xl:h-60 m-4 xl:m-6">
           {/* <p>Post.tsx</p> */}
 
           <div className="">
             <img
               src={props.imageurl}
               alt=""
-              className="h-36 w-full object-cover"
+              className="h-36 xl:h-48 w-full object-cover"
             />
           </div>
-          <div className="grid justify-items-center items-center p-1 xl:p-4 text-center h-12">
+          <div className="grid justify-items-center items-center p-1 xl:p-4 text-center h-12 xl:h-12">
             <p>{props.name}</p>
           </div>
         </div>
