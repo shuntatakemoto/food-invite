@@ -87,18 +87,27 @@ const Detail: React.FC = (props) => {
             <Emoji emoji={post.emojiname} size={64} set="twitter" />
           )}
         </div>
-        <h3 className="text-3xl text-center mb-10">{post.listname}</h3>
+        <h3 className="text-3xl text-center mb-5">{post.listname}</h3>
         {user.uid && <Button buttonText="店を追加する" buttonLink={addLink} />}
-        {user.uid && (
-          <div className="text-center ">
+
+        <div className="text-center ">
+          {user.uid && (
             <button
               onClick={() => setShow(true)}
-              className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white "
+              className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-5"
             >
               リストをシェアする
             </button>
-          </div>
-        )}
+          )}
+          {/* 自分のリストには一緒に行きたいボタンは必要ないので条件分岐でユーザーIDが自分じゃない時に表示させる */}
+          <button
+            // onClick={() => setShow(true)}
+            className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-5"
+          >
+            一緒に行きたい
+          </button>
+        </div>
+
         {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
       <Modal show={show} setShow={setShow} content={post.listname} />
