@@ -44,7 +44,7 @@ const CreateList: React.FC = () => {
           fullWidth
           margin="normal"
           value={listName}
-          className="pr-5 mb-5"
+          className="pr-5 mb-5 xl:w-1/4"
           onChange={(e) => setListName(e.target.value)}
         />
 

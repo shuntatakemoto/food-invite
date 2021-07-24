@@ -94,7 +94,7 @@ const AddList: React.FC<PROPS> = (props) => {
   };
   return (
     <>
-      <form onSubmit={addList} className="px-10 xl:w-1/2 flex-1">
+      <form onSubmit={addList} className="px-10 xl:w-1/4 flex-1">
         <div>
           <TextField
             label="店名"
