@@ -94,7 +94,7 @@ const AddList: React.FC<PROPS> = (props) => {
   };
   return (
     <>
-      <form onSubmit={addList} className="px-10 flex-1">
+      <form onSubmit={addList} className="px-10 xl:w-1/2 flex-1">
         <div>
           <TextField
             label="店名"
@@ -125,7 +125,7 @@ const AddList: React.FC<PROPS> = (props) => {
               />
             </label>
             {/* プレビュー画像を表示 */}
-            <div className="w-3/4">
+            <div className="w-3/4 xl:w-2/5">
               <img src={fileUrl}></img>
             </div>
           </div>
