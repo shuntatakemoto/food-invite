@@ -40,8 +40,7 @@ const WholePost: React.FC<PROPS> = (props) => {
           dispatch(getEmojiName(props.emojiname));
         }}
       >
-        <div className="h-2/3 text-center pt-2">
-          <p>WholePost.tsx</p>
+        <div className="h-2/3 text-center pt-6">
           <Emoji emoji={newEmojiName} size={64} set="twitter" />
         </div>
         <div className="text-center h-1/3">
