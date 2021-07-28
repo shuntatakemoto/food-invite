@@ -65,7 +65,7 @@ const MyItem: React.FC<PROPS> = (props) => {
       <p className="text-center">{posts.name}</p>
       <p className="text-center">{posts.memo}</p>
       <UrlButton buttonText="詳しい店情報" buttonLink={posts.url} />
-      <div className="">
+      <div className="mt-16">
         <img
           src={posts.imageurl}
           className="text-center w-72 h-72 object-cover m-auto"
