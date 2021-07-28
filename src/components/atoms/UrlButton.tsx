@@ -1,5 +1,4 @@
 import React from "react";
-
 interface PROPS {
   buttonText: string;
   buttonLink: string;

@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import Post from "../molecules/Post";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/userSlice";
-import { selectPost } from "../../features/postSlice";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const MyList: React.FC = () => {
-  const user = useSelector(selectUser);
-  const storePostId = useSelector(selectPost);
   const params = useParams<{ uid: string; id: string }>();
   const id = params.id;
   const uid = params.uid;
@@ -30,7 +25,6 @@ const MyList: React.FC = () => {
 
   useEffect(() => {
     const unSub = db
-      // .collection(user.uid)
       .collection(uid)
       .doc(id)
       .collection("restaurant")

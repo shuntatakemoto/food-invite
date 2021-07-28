@@ -4,7 +4,6 @@ import { selectUser } from "../../features/userSlice";
 import { Link } from "react-router-dom";
 import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
-import { useParams } from "react-router-dom";
 import { Emoji } from "emoji-mart";
 
 const Header: React.FC = () => {

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import firebase from "firebase/app";
-import { storage, db, auth } from "../../firebase";
+import { storage, db } from "../../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";

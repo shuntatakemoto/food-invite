@@ -3,10 +3,9 @@ import { db } from "../../firebase";
 import WholePost from "../molecules/WholePost";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const WholeMyList: React.FC = () => {
-  const user = useSelector(selectUser);
   const params = useParams<{ uid: string }>();
   const uid = params.uid;
   const [posts, setPosts] = useState([
@@ -22,7 +21,6 @@ const WholeMyList: React.FC = () => {
 
   useEffect(() => {
     const unSub = db
-      // .collection(user.uid)
       .collection(uid)
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>

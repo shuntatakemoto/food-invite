@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectUser } from "../../features/userSlice";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import {
   selectItem,
@@ -11,7 +10,6 @@ import {
   getUserName,
   getImageUrl,
 } from "../../features/itemSlice";
-import { useHistory, useParams } from "react-router-dom";
 interface PROPS {
   postId: string;
   avatar: string;
@@ -43,8 +41,6 @@ const Post: React.FC<PROPS> = (props) => {
         }}
       >
         <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 xl:h-60 m-4 xl:m-6">
-          {/* <p>Post.tsx</p> */}
-
           <div className="">
             <img
               src={props.imageurl}

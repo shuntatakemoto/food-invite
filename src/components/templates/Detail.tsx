@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MyList from "../organisms/MyList";
 import { useSelector } from "react-redux";
-import { selectPost } from "../../features/postSlice";
 import { selectUser } from "../../features/userSlice";
 import { Emoji } from "emoji-mart";
 import Button from "../atoms/Button";
@@ -117,7 +116,6 @@ const Detail: React.FC = (props) => {
       </div>
       <Modal show={show} setShow={setShow} content={post.listname} />
       <MyList />
-      {console.log(post)}
     </div>
   );
 };

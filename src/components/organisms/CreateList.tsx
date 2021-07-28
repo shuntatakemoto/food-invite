@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import firebase from "firebase/app";
-import { storage, db, auth } from "../../firebase";
+import { db } from "../../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import "emoji-mart/css/emoji-mart.css";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   getPostId,
   getListName,
@@ -43,7 +43,6 @@ const WholePost: React.FC<PROPS> = (props) => {
           <p className="text-base">{props.listname}</p>
         </div>
       </Link>
-      {console.log(props.postId)}
     </div>
   );
 };

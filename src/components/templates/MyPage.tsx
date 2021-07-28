@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { auth } from "../../firebase";
+import React from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import WholeMyList from "../organisms/WholeMyList";

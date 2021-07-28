@@ -17,10 +17,8 @@ interface PROPS {
 }
 
 const MyItem: React.FC<PROPS> = (props) => {
-  const item = useSelector(selectItem);
   const history = useHistory();
   const user = useSelector(selectUser);
-  const post = useSelector(selectPost);
   const [posts, setPosts] = useState<any>("");
   const params = useParams<{ uid: string; id: string; itemId: string }>();
   const id = params.id;

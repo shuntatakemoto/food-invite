@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectUser, login, logout } from "./features/userSlice";
+import { useDispatch } from "react-redux";
+import { login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
-import Auth from "./components/organisms/Auth";
 import Home from "./components/pages/Home";
 
 const App: React.FC = () => {
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
