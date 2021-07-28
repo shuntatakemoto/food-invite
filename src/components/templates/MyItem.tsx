@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectItem } from "../../features/itemSlice";
 import UrlButton from "../atoms/UrlButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../../firebase";
-import { selectPost } from "../../features/postSlice";
 import { selectUser } from "../../features/userSlice";
 import { useHistory, useParams } from "react-router-dom";
 interface PROPS {
@@ -56,15 +53,10 @@ const MyItem: React.FC<PROPS> = (props) => {
 
   return (
     <div className="flex-1">
-      {user.uid && (
-        <div>
-          <p>この店を削除する</p>
-          <DeleteIcon fontSize="large" onClick={deleteItem} />
-        </div>
-      )}
-      <p className="text-center">{posts.name}</p>
+      <p className="text-center text-2xl mt-6">{posts.name}</p>
       <p className="text-center">{posts.memo}</p>
       <UrlButton buttonText="詳しい店情報" buttonLink={posts.url} />
+
       <div className="mt-7">
         <img
           src={posts.imageurl}
@@ -72,7 +64,19 @@ const MyItem: React.FC<PROPS> = (props) => {
           alt=""
         />
       </div>
-      <p>added by {posts.username}</p>
+      <div className="grid justify-items-center items-center mt-5">
+        <p>added by {posts.username}</p>
+      </div>
+      <div className="text-center ">
+        {user.uid && (
+          <button
+            onClick={deleteItem}
+            className="bg-red-700 text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-10"
+          >
+            この店を削除する
+          </button>
+        )}
+      </div>
     </div>
   );
 };

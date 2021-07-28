@@ -5,7 +5,6 @@ import { selectUser } from "../../features/userSlice";
 import { Emoji } from "emoji-mart";
 import Button from "../atoms/Button";
 import UrlButton from "../atoms/UrlButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../../firebase";
 import { useHistory, useParams, Link } from "react-router-dom";
 import Modal from "../organisms/Modal";
@@ -76,7 +75,7 @@ const Detail: React.FC = (props) => {
         </div>
         <p>Created by {post.username}</p>
       </div>
-      <div>
+      <div className="mb-6">
         <div className="text-center py-10">
           {post.emojiname && (
             <Emoji emoji={post.emojiname} size={64} set="twitter" />
@@ -100,11 +99,19 @@ const Detail: React.FC = (props) => {
         {user.uid && (
           <UrlButton buttonText="一緒に行きたい" buttonLink={DmLink} />
         )}
-
-        {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
       <Modal show={show} setShow={setShow} content={post.listname} />
       <MyList />
+      <div className="text-center mb-6">
+        {user.uid && (
+          <button
+            onClick={deleteList}
+            className="bg-red-700 text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-10"
+          >
+            このリストを削除する
+          </button>
+        )}
+      </div>
     </div>
   );
 };
