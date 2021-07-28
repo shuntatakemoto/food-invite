@@ -36,7 +36,7 @@ const WholePost: React.FC<PROPS> = (props) => {
           dispatch(getEmojiName(props.emojiname));
         }}
       >
-        <div className="h-36 xl:h-48 grid justify-items-center items-center bg-gray-300">
+        <div className="h-36 xl:h-48 grid justify-items-center items-center bg-gray-200">
           <Emoji emoji={newEmojiName} size={64} set="twitter" />
         </div>
         <div className="text-center h-12 xl:h-12 grid justify-items-center items-center bg-gray-200">
