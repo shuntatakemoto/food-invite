@@ -4,18 +4,12 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import { Emoji } from "emoji-mart";
 import Button from "../atoms/Button";
+import UrlButton from "../atoms/UrlButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../../firebase";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import Modal from "../organisms/Modal";
-// interface PROPS {
-//   userid: string;
-//   avatar: string;
-//   listname: string;
-//   username: string;
-//   timestamp: any;
-//   emojiname: string| undefined;
-// }
+
 const Detail: React.FC = (props) => {
   const user = useSelector(selectUser);
   const history = useHistory();
@@ -83,12 +77,13 @@ const Detail: React.FC = (props) => {
         <p>Created by {post.username}</p>
       </div>
       <div>
-        <div className="text-center py-12">
+        <div className="text-center py-10">
           {post.emojiname && (
             <Emoji emoji={post.emojiname} size={64} set="twitter" />
           )}
         </div>
-        <h3 className="text-3xl text-center mb-5">{post.listname}</h3>
+        <h3 className="text-3xl text-center mb-5 ">{post.listname}</h3>
+
         {user.uid && <Button buttonText="店を追加する" buttonLink={addLink} />}
 
         <div className="text-center ">
@@ -101,17 +96,11 @@ const Detail: React.FC = (props) => {
             </button>
           )}
         </div>
-        <div className="text-center ">
-          {/* 自分のリストには一緒に行きたいボタンは必要ないので条件分岐でユーザーIDが自分じゃない時に表示させる */}
-          <a href={DmLink}>
-            <button
-              // onClick={() => setShow(true)}
-              className="bg-black text-white w-56 font-bold py-2 px-5 rounded-full shadow-xl hover:bg-gray-400 hover:text-white mt-5"
-            >
-              一緒に行きたい
-            </button>
-          </a>
-        </div>
+        {/* 自分のリストには一緒に行きたいボタンは必要ないので条件分岐でユーザーIDが自分じゃない時に表示させる */}
+        {user.uid && (
+          <UrlButton buttonText="一緒に行きたい" buttonLink={DmLink} />
+        )}
+
         {user.uid && <DeleteIcon fontSize="large" onClick={deleteList} />}
       </div>
       <Modal show={show} setShow={setShow} content={post.listname} />
