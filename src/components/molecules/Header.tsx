@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   return (
     <div className="bg-sub-color flex h-16 items-center justify-evenly">
       <Link to="/">
-        <h3 className="text-2xl">Food Invite</h3>
+        <h3 className="text-2xl font-bold">Food Invite</h3>
       </Link>
 
       {user.uid ? (
