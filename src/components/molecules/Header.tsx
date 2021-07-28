@@ -4,34 +4,47 @@ import { selectUser } from "../../features/userSlice";
 import { Link } from "react-router-dom";
 import LibraryAddIcon from "@material-ui/icons/LibraryAdd";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
+import SearchIcon from "@material-ui/icons/Search";
 import { Emoji } from "emoji-mart";
 
 const Header: React.FC = () => {
   const user = useSelector(selectUser);
   const createLink = `${user.uid}/create-list`;
+  const searchLink = `/search-list`;
+  const bookmarkLink = `${user.uid}/bookmark-list`;
 
   return (
-    <div className="bg-sub-color flex h-16 items-center justify-center">
+    <div className="bg-sub-color flex h-16 items-center justify-evenly">
       <Link to="/">
-        <h3 className="px-4 text-2xl">Food Invite</h3>
+        <h3 className="text-2xl">Food Invite</h3>
       </Link>
 
       {user.uid ? (
-        <Link to={createLink} className="mr-5 ml-5">
+        <Link to={createLink} className="">
           <LibraryAddIcon fontSize="large" />
         </Link>
       ) : (
-        <div className="mr-5 ml-5">
+        <div className="">
           <Emoji emoji="knife_fork_plate" size={32} />
         </div>
       )}
 
       {user.uid ? (
-        <Link to="/bookmark">
+        <Link to={searchLink} className="">
+          <SearchIcon fontSize="large" />
+        </Link>
+      ) : (
+        <div className="">
+          <Emoji emoji="male-cook" size={32} />
+        </div>
+      )}
+
+      {user.uid ? (
+        <Link to={bookmarkLink} className="">
           <BookmarkIcon fontSize="large" />
         </Link>
       ) : (
-        <div className="mr-5">
+        <div className="">
           <Emoji emoji="yum" size={32} />
         </div>
       )}
