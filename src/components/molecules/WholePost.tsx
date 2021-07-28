@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { db } from "../../firebase";
-import firebase from "firebase/app";
-import { selectUser } from "../../features/userSlice";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getPostId,
@@ -11,7 +8,7 @@ import {
   selectPost,
 } from "../../features/postSlice";
 import { Emoji } from "emoji-mart";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 interface PROPS {
   postId: string;
   // avatar: string;
@@ -22,13 +19,12 @@ interface PROPS {
 }
 
 const WholePost: React.FC<PROPS> = (props) => {
-  const post = useSelector(selectPost);
   const dispatch = useDispatch();
   const emojiName = props.emojiname;
   //ダブルクオテーションを削除している
   const newEmojiName = emojiName.replace(/\"/g, "");
-  const params = useParams() as any;
-  const uid = params.uid as string;
+  const params = useParams<{ uid: string }>();
+  const uid = params.uid;
 
   return (
     <div className="bg-gray-200 rounded-lg shadow-xl overflow-hidden h-48 m-4 xl:m-6">

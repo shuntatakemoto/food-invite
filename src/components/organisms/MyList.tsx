@@ -9,9 +9,9 @@ import { useHistory, useParams } from "react-router-dom";
 const MyList: React.FC = () => {
   const user = useSelector(selectUser);
   const storePostId = useSelector(selectPost);
-  const params = useParams() as any;
-  const id = params.id as string;
-  const uid = params.uid as string;
+  const params = useParams<{ uid: string; id: string }>();
+  const id = params.id;
+  const uid = params.uid;
   const [posts, setPosts] = useState([
     {
       id: "",

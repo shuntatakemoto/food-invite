@@ -26,12 +26,7 @@ interface PROPS {
 }
 
 const Post: React.FC<PROPS> = (props) => {
-  const post = useSelector(selectItem);
   const dispatch = useDispatch();
-  const params = useParams() as any;
-  const id = params.id as string;
-  const itemId = params.itemId as string;
-  const user = useSelector(selectUser);
   const match = useRouteMatch();
 
   return (

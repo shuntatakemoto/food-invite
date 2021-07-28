@@ -14,8 +14,8 @@ const CreateList: React.FC = () => {
   const [emojiName, setEmojiName] = useState("");
   const history = useHistory();
   const newEmojiName = emojiName.replace(/\"/g, "");
-  const params = useParams() as any;
-  const uid = params.uid as string;
+  const params = useParams<{ uid: string }>();
+  const uid = params.uid;
 
   const createList = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

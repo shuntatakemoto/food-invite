@@ -19,12 +19,11 @@ import Modal from "../organisms/Modal";
 // }
 const Detail: React.FC = (props) => {
   const user = useSelector(selectUser);
-  const storeEmojiName = useSelector(selectPost);
   const history = useHistory();
-  const params = useParams() as any;
-  const uid = params.uid as string;
-  const id = params.id as string;
-  const addLink = `/${user.uid}/add-list`;
+  const params = useParams<{ uid: string; id: string }>();
+  const uid = params.uid;
+  const id = params.id;
+  const addLink = `/${uid}/${id}/add-list`;
 
   // const [post, setPost] = useState([
   //   {
@@ -41,9 +40,7 @@ const Detail: React.FC = (props) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const unSub = db
-      // .collection(user.uid)
-      .collection(uid)
+    db.collection(uid)
       .doc(id)
       .get()
       .then((doc) => setPost(doc.data()));
@@ -66,7 +63,7 @@ const Detail: React.FC = (props) => {
     history.push("/");
   };
 
-  const DmLink =
+  const DmLink: string =
     "https://twitter.com/messages/compose?recipient_id=" +
     post.twitterid +
     "&text=(店名を入力)に一緒に行きたいです for Food Invite\n " +

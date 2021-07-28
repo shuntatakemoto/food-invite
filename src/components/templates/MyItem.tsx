@@ -22,10 +22,10 @@ const MyItem: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   const post = useSelector(selectPost);
   const [posts, setPosts] = useState<any>("");
-  const params = useParams() as any;
-  const id = params.id as string;
-  const itemId = params.itemId as string;
-  const uid = params.uid as string;
+  const params = useParams<{ uid: string; id: string; itemId: string }>();
+  const id = params.id;
+  const itemId = params.itemId;
+  const uid = params.uid;
 
   useEffect(() => {
     const unSub = db
@@ -42,10 +42,10 @@ const MyItem: React.FC<PROPS> = (props) => {
   }, []);
 
   const deleteItem = () => {
-    db.collection(user.uid)
-      .doc(post.postId)
+    db.collection(uid)
+      .doc(id)
       .collection("restaurant")
-      .doc(item.itemPostId)
+      .doc(itemId)
       .delete()
       .then(() => {
         console.log("Document successfully deleted!");
@@ -53,7 +53,7 @@ const MyItem: React.FC<PROPS> = (props) => {
       .catch((error) => {
         console.error("Error removing document: ", error);
       });
-    history.push(`/${uid}/${post.postId}`);
+    history.push(`/${uid}/${id}`);
   };
 
   return (

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import { storage, db, auth } from "../../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import AddPhotoIcon from "@material-ui/icons/AddAPhoto";
-import { selectPost } from "../../features/postSlice";
 import TextField from "@material-ui/core/TextField";
 import { useHistory, useParams } from "react-router-dom";
 interface PROPS {
@@ -23,9 +22,9 @@ const AddList: React.FC<PROPS> = (props) => {
   const [restaurantUrl, setRestaurantUrl] = useState("");
   const [fileUrl, setFileUrl] = useState<any>(null);
   const history = useHistory();
-  const storePostId = useSelector(selectPost);
-  const params = useParams() as any;
-  const uid = params.uid as string;
+  const params = useParams<{ uid: string; id: string }>();
+  const uid = params.uid;
+  const id = params.id;
 
   const onChangeImageHandler = (e: any) => {
     if (e.target.files![0]) {
@@ -47,9 +46,7 @@ const AddList: React.FC<PROPS> = (props) => {
         .map((n) => S[n % S.length])
         .join("");
       const fileName = randomChar + "_" + uploadImage.name;
-      const uploadTweetImg = storage
-        .ref(`${user.uid}/${fileName}`)
-        .put(uploadImage);
+      const uploadTweetImg = storage.ref(`${uid}/${fileName}`).put(uploadImage);
       uploadTweetImg.on(
         firebase.storage.TaskEvent.STATE_CHANGED,
         () => {},
@@ -58,27 +55,23 @@ const AddList: React.FC<PROPS> = (props) => {
         },
         async () => {
           await storage
-            .ref(user.uid)
+            .ref(uid)
             .child(fileName)
             .getDownloadURL()
             .then(async (url) => {
-              // db.collection(user.uid)
-              db.collection(uid)
-                .doc(storePostId.postId)
-                .collection("restaurant")
-                .add({
-                  imageurl: url,
-                  name: name,
-                  memo: memo,
-                  url: restaurantUrl,
-                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                  username: user.displayName,
-                });
+              db.collection(uid).doc(id).collection("restaurant").add({
+                imageurl: url,
+                name: name,
+                memo: memo,
+                url: restaurantUrl,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                username: user.displayName,
+              });
             });
         }
       );
     } else {
-      db.collection(uid).doc(storePostId.postId).collection("restaurant").add({
+      db.collection(uid).doc(id).collection("restaurant").add({
         name: name,
         memo: memo,
         url: restaurantUrl,
@@ -90,12 +83,16 @@ const AddList: React.FC<PROPS> = (props) => {
     setName("");
     setMemo("");
     setRestaurantUrl("");
-    history.push(`/${uid}/${storePostId.postId}`);
+    history.push(`/${uid}/${id}`);
   };
   return (
     <>
       <form onSubmit={addList} className="px-10 xl:w-1/4 flex-1">
         <div>
+          {console.log("id-test")}
+          {console.log(id)}
+          {console.log("params-test")}
+          {console.log(params)}
           <TextField
             label="店名"
             placeholder="店名を入力"

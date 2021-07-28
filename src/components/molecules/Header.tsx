@@ -9,8 +9,6 @@ import { Emoji } from "emoji-mart";
 
 const Header: React.FC = () => {
   const user = useSelector(selectUser);
-  const params = useParams() as any;
-  const uid = params.uid as string;
   const createLink = `${user.uid}/create-list`;
 
   return (
