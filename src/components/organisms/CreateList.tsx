@@ -35,7 +35,7 @@ const CreateList: React.FC = () => {
 
   return (
     <>
-      <h3>リストを作成</h3>
+      <h3 className="text-2xl font-bold">リストを作成</h3>
       <form onSubmit={createList} className="pl-5 flex-1">
         <TextField
           label="リスト名"

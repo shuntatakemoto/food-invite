@@ -87,6 +87,7 @@ const AddList: React.FC<PROPS> = (props) => {
   };
   return (
     <>
+      <h3 className="text-2xl font-bold">店を追加</h3>
       <form onSubmit={addList} className="px-10 xl:w-1/4 flex-1">
         <div>
           {console.log("id-test")}
