@@ -96,9 +96,7 @@ const Detail: React.FC = (props) => {
           )}
         </div>
         {/* 自分のリストには一緒に行きたいボタンは必要ないので条件分岐でユーザーIDが自分じゃない時に表示させる */}
-        {user.uid && (
-          <UrlButton buttonText="一緒に行きたい" buttonLink={DmLink} />
-        )}
+        <UrlButton buttonText="一緒に行きたい" buttonLink={DmLink} />
       </div>
       <Modal show={show} setShow={setShow} content={post.listname} />
       <MyList />
